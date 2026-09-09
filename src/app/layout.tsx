@@ -1,11 +1,15 @@
 import { RootProvider } from 'fumadocs-ui/provider/next';
-import type { Viewport } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './global.css';
 import { Inter } from 'next/font/google';
 
 const inter = Inter({
   subsets: ['latin'],
 });
+
+export const metadata: Metadata = {
+  metadataBase: new URL('https://runvey.io'),
+};
 
 export const viewport: Viewport = {
   colorScheme: 'light dark',
