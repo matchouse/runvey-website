@@ -234,8 +234,8 @@ export default function HomePage() {
               <Kicker index="04">DEVELOPER FIRST</Kicker><h2>A platform that<br /><em>speaks your language.</em></h2>
               <p>Use the dashboard when you want the big picture and the command line when you already know where you are going.</p>
               <div className={styles.developerLinks}>
-                <Link href="/docs"><IconBox><Terminal /></IconBox><span><strong>Quick start</strong><small>Take an app from zero to live</small></span><ArrowRight /></Link>
-                <a href="#product"><IconBox><BookOpen /></IconBox><span><strong>Platform concepts</strong><small>Understand services and deployments</small></span><ArrowRight /></a>
+                <Link href="/docs"><IconBox><Terminal /></IconBox><span><strong>Documentation</strong><small>Explore the deployment workflow</small></span><ArrowRight /></Link>
+                <Link href="/docs/concepts"><IconBox><BookOpen /></IconBox><span><strong>Platform concepts</strong><small>Understand services and deployments</small></span><ArrowRight /></Link>
               </div>
             </Reveal>
           </div>
@@ -255,7 +255,7 @@ export default function HomePage() {
           <Reveal className={`${styles.inner} ${styles.finalInner}`}>
             <span className={styles.finalStatus}><i /> RUNWAY CLEAR</span><h2>Ready when<br /><em>your code is.</em></h2>
             <p>Bring the repository. Keep the infrastructure. Let Runvey handle the path between them.</p>
-            <div className={styles.actions}><a className={`${styles.button} ${styles.primaryButton}`} href={GITHUB_URL} target="_blank" rel="noreferrer">Get started on GitHub <ArrowRight /></a><Link className={`${styles.button} ${styles.secondaryButton}`} href="/docs">Read the quick start</Link></div>
+            <div className={styles.actions}><a className={`${styles.button} ${styles.primaryButton}`} href={GITHUB_URL} target="_blank" rel="noreferrer">Get started on GitHub <ArrowRight /></a><Link className={`${styles.button} ${styles.secondaryButton}`} href="/docs">Read the docs</Link></div>
           </Reveal>
         </section>
       </main>

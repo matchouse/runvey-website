@@ -5,10 +5,10 @@
   --muted: #a1a6a2;
   --line: rgba(255, 255, 255, 0.1);
   --signal: #69a7ff;
-  min-width: 320px;
+  min-width: 0;
   color: var(--ink);
   background: var(--canvas);
-  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: inherit;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -61,7 +61,7 @@
   position: sticky;
   z-index: 0;
   top: min(0px, calc(100svh - var(--hero-height, 100svh)));
-  min-height: calc(100svh - 80px);
+  min-height: 100svh;
   overflow: hidden;
   isolation: isolate;
   background: radial-gradient(circle at 50% 0, rgba(105, 167, 255, 0.055), transparent 30rem), var(--canvas);
@@ -109,7 +109,7 @@
   z-index: 50;
   top: 12px;
   height: 68px;
-  margin-bottom: 12px;
+  margin-bottom: -68px;
   pointer-events: none;
 }
 
@@ -174,9 +174,9 @@
 .heroContent {
   display: grid;
   width: min(1180px, calc(100% - 48px));
-  min-height: calc(100svh - 80px);
+  min-height: 100svh;
   margin: 0 auto;
-  padding: clamp(64px, 9vh, 106px) 0 clamp(54px, 8vh, 90px);
+  padding: clamp(112px, 14vh, 144px) 0 clamp(54px, 8vh, 90px);
   grid-template-columns: minmax(0, 1.03fr) minmax(410px, 0.97fr);
   align-items: center;
   gap: clamp(48px, 7vw, 96px);
@@ -670,7 +670,7 @@
 :global(html:not(.dark)) .footerLinks a:hover { color: #222a24; }
 
 @media (max-width: 1000px) {
-  .heroContent { width: min(760px, calc(100% - 48px)); padding-top: clamp(70px, 9vh, 96px); grid-template-columns: 1fr; gap: 72px; text-align: center; }
+  .heroContent { width: min(760px, calc(100% - 48px)); padding-top: clamp(112px, 14vh, 144px); grid-template-columns: 1fr; gap: 72px; text-align: center; }
   .heroCopy { display: flex; flex-direction: column; align-items: center; }
   .hero h1 { max-width: 760px; font-size: clamp(3.2rem, 8vw, 5.25rem); }
   .heroLede { max-width: 590px; }
@@ -686,16 +686,16 @@
 }
 
 @media (max-width: 760px) {
-  .header { top: 8px; height: 60px; margin-bottom: 8px; }
+  .header { top: 8px; height: 60px; margin-bottom: -60px; }
   .section,
   .finalCta { scroll-margin-top: 76px; }
   .nav { width: calc(100% - 24px); height: 60px; padding: 0 10px; grid-template-columns: auto 1fr auto; column-gap: 10px; border-radius: 15px; }
   .navLinks { justify-self: end; gap: 0; }
-  .navLinks a:not(:last-child) { display: none; }
+  .navLinks a:not(:nth-child(2)) { display: none; }
   .hero::before,
   .hero::after { display: none; }
-  .hero { min-height: calc(100svh - 68px); }
-  .heroContent { width: calc(100% - 42px); min-height: calc(100svh - 68px); padding-top: clamp(96px, 14vh, 128px); padding-bottom: 68px; gap: 56px; }
+  .hero { min-height: 100svh; }
+  .heroContent { width: calc(100% - 42px); min-height: 100svh; padding-top: clamp(100px, 14vh, 128px); padding-bottom: 68px; gap: 56px; }
   .hero h1 { margin-top: 26px; line-height: 0.98; }
   .runwayScene { --flight-distance: 320px; min-height: 440px; border-radius: 14px; }
   .runway { top: 68px; width: 100%; }
@@ -756,7 +756,7 @@
   .brandName { font-size: 1.16rem; }
   .navCta { padding: 9px 11px; }
   .navCta svg { display: none; }
-  .heroContent { width: calc(100% - 32px); padding-top: 50px; padding-bottom: 58px; gap: 42px; }
+  .heroContent { width: calc(100% - 32px); padding-top: 92px; padding-bottom: 58px; gap: 42px; }
   .heroCopy { width: 100%; }
   .hero h1 { max-width: 100%; margin: 24px 0 22px; font-size: clamp(2.2rem, 10.5vw, 3rem); letter-spacing: -0.065em; line-height: 1; }
   .heroLede { max-width: 36rem; font-size: 0.94rem; line-height: 1.62; }
@@ -765,7 +765,7 @@
   .button { width: 100%; }
   .commandStrip { margin-top: 22px; }
   .commandResult { font-size: 0; }
-  .commandResult::after { content: "LIVE"; font-size: 0.61rem; }
+  .commandResult::after { content: "READY"; font-size: 0.61rem; }
   .runwayScene { --flight-distance: 285px; min-height: 420px; }
   .sceneTopline { padding: 0 12px; }
   .sceneTopline > span:first-child { display: none; }
@@ -809,8 +809,7 @@
 }
 
 @media (max-width: 360px) {
-  .navLinks { display: none; }
-  .nav { grid-template-columns: 1fr auto; }
+  .navCta { display: none; }
   .hero h1 { font-size: clamp(2.1rem, 10.5vw, 2.35rem); }
   .telemetry { min-width: 150px; }
   .telemetryIcon { width: 24px; height: 24px; }

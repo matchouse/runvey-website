@@ -1,0 +1,26 @@
+---
+title: Platform concepts
+description: Understand the path from a Git repository to a running service.
+---
+
+## Repository
+
+A repository holds your application source code. A Git commit identifies the version of that code associated with a deployment.
+
+## Build
+
+A build turns source code into a container image. The image packages the application and its runtime dependencies so it can run on your infrastructure.
+
+## Service
+
+A service is a running part of your application, such as an API or a background worker. Its configuration includes the environment values and infrastructure it needs. Public-facing services also need a domain and routing configuration.
+
+## Deployment
+
+A deployment brings a particular application version and its configuration to a service. The workflow shown on the Runvey homepage follows source receipt, image creation, service startup, and a health check.
+
+## Infrastructure
+
+Self-hosting means you choose and operate the infrastructure that runs Runvey and your applications. The control plane coordinates the deployment workflow; application services run on the infrastructure you provide.
+
+For source code and project updates, visit the [Runvey repository](https://github.com/matchouse/runvey).
