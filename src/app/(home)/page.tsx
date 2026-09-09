@@ -27,6 +27,19 @@ export const metadata: Metadata = {
   title: 'Runvey — Your code, cleared for launch.',
   description:
     'Runvey is the open-source platform for shipping applications on your own infrastructure.',
+  openGraph: {
+    type: 'website',
+    siteName: 'Runvey',
+    title: 'Runvey — Your code, cleared for launch.',
+    description:
+      'Runvey is the open-source platform for shipping applications on your own infrastructure.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Runvey — Your code, cleared for launch.',
+    description:
+      'Runvey is the open-source platform for shipping applications on your own infrastructure.',
+  },
 };
 
 const GITHUB_URL = 'https://github.com/matchouse/runvey';
@@ -262,7 +275,7 @@ export default function HomePage() {
 
       <footer className={styles.footer}>
         <div className={`${styles.inner} ${styles.footerInner}`}>
-          <div className={styles.footerBrand}><Brand lowercase /><p>The open-source path<br />from code to cloud.</p></div>
+          <div className={styles.footerBrand}><Brand /><p>The open-source path<br />from code to cloud.</p></div>
           <div className={styles.footerLinks}><div><strong>Platform</strong><a href="#product">Product</a><a href="#workflow">Workflow</a><a href="#developer">Developer experience</a></div><div><strong>Project</strong><a href={GITHUB_URL} target="_blank" rel="noreferrer">GitHub</a><Link href="/docs">Documentation</Link><Link href="/terms">Terms</Link><Link href="/privacy">Privacy</Link></div></div>
         </div>
         <div className={`${styles.inner} ${styles.footerBottom}`}><span>© Runvey. Open source.</span><span className={styles.footerStatus}><i /> OPEN SOURCE · SELF-HOSTED</span></div>
