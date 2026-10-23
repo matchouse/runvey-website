@@ -1,7 +1,7 @@
 import { RootProvider } from "fumadocs-ui/provider/next";
 import type { Metadata, Viewport } from "next";
 import "./global.css";
-import { Geist_Mono, Inter, Manrope } from "next/font/google";
+import { Geist_Mono, Inter, Manrope, Space_Grotesk } from "next/font/google";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -15,6 +15,11 @@ const manrope = Manrope({
 const geistMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-geistmono",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-spacegrotesk",
 });
 
 export const metadata: Metadata = {
@@ -33,7 +38,7 @@ export default function Layout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${inter.className} ${manrope.variable} ${geistMono.variable}`}
+      className={`${inter.className} ${manrope.variable} ${geistMono.variable} ${spaceGrotesk.variable}`}
       suppressHydrationWarning
     >
       <body className="flex flex-col min-h-screen">
