@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" role="img" aria-label="Runvey">
+  <title>Runvey</title>
+  <rect x="1" y="1" width="42" height="42" rx="12" fill="#111311" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  <path d="M13.25 33.5 18.8 10.5M30.75 33.5 25.2 10.5" fill="none" stroke="#f5f7f4" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+  <path pathLength="24" d="M22 32.5V11.5" fill="none" stroke="#f5f7f4" stroke-width="2.25" stroke-linecap="round" stroke-dasharray="3 4"/>
+</svg>

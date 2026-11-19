@@ -19,7 +19,7 @@ type LegalDocumentProps = {
 
 export const EFFECTIVE_DATE = '8 September 2026';
 export const RUNVEY_REPOSITORY = 'https://github.com/matchouse/runvey';
-export const LEGAL_EMAIL = 'legal@matchouse.com';
+export const LEGAL_EMAIL = 'legal@runvey.io';
 
 export function Paragraph({ children }: { children: React.ReactNode }) {
   return <p className={styles.paragraph}>{children}</p>;
@@ -53,7 +53,6 @@ export function LegalDocument({ kind, title, eyebrow, description, sections }: L
             <span>Runvey</span>
           </Link>
           <div className={styles.navLinks}>
-            <Link href="/docs">Docs</Link>
             <a href={RUNVEY_REPOSITORY} target="_blank" rel="noreferrer"><Code2 /> GitHub</a>
             <ThemeToggle />
           </div>
