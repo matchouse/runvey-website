@@ -1,0 +1,553 @@
+.main {
+    width: min(920px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 72px 0 110px;
+}
+
+.intro h1 {
+    margin: 0 0 26px;
+    font-size: clamp(3rem, 5.6vw, 4.6rem);
+    font-weight: 520;
+    letter-spacing: -0.075em;
+    line-height: 0.94;
+}
+
+.intro h1 em {
+    color: #747b76;
+    font-style: normal;
+}
+
+/* Hero flight scene */
+
+.hero {
+    --fh-ink: #f5f7f4;
+    --fh-runway: #1b1e20;
+    --fh-line: rgba(255, 255, 255, 0.14);
+    --fh-text: #d9ddd9;
+    --fh-faint: #6f7670;
+    margin: 64px 0 0;
+    color: var(--fh-line);
+}
+
+.heroSvg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+
+.heroRoute {
+    fill: none;
+    stroke: var(--fh-line);
+    stroke-width: 1;
+    stroke-dasharray: 2 6;
+}
+
+.heroGround {
+    color: var(--fh-line);
+}
+
+.heroRunway {
+    fill: var(--fh-runway);
+    stroke: rgba(255, 255, 255, 0.08);
+}
+
+.heroCenterline {
+    stroke: rgba(236, 240, 238, 0.4);
+    stroke-width: 0.8;
+    stroke-dasharray: 5 5;
+}
+
+.heroEdgeLight {
+    fill: #4a504b;
+}
+
+.heroPort[data-status="done"] .heroEdgeLight {
+    fill: #4ade80;
+}
+
+.heroPort[data-status="now"] .heroEdgeLight {
+    fill: var(--signal);
+}
+
+.heroPeriod {
+    fill: var(--fh-faint);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 15px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.heroPort[data-status="done"] .heroPeriod {
+    fill: #4ade80;
+}
+
+.heroPort[data-status="now"] .heroPeriod {
+    fill: var(--signal);
+}
+
+.heroTitle {
+    fill: var(--fh-text);
+    font-size: 19px;
+    font-weight: 560;
+    letter-spacing: -0.02em;
+}
+
+.heroShadow {
+    fill: #000000;
+}
+
+.heroAircraft {
+    fill: var(--fh-ink);
+}
+
+.heroGear path {
+    stroke: #8a918b;
+    stroke-width: 1.2;
+}
+
+.heroGear circle {
+    fill: #2a2e2b;
+    stroke: #8a918b;
+    stroke-width: 0.8;
+}
+
+.heroWindows {
+    stroke: rgba(9, 10, 10, 0.55);
+    stroke-width: 1.6;
+    stroke-dasharray: 1.4 1.8;
+}
+
+.heroCockpit {
+    fill: #0b0d0c;
+}
+
+.heroBeam {
+    mix-blend-mode: screen;
+}
+
+.heroNavGreen {
+    fill: #3dff7a;
+}
+
+.heroTailLight {
+    fill: #ffffff;
+}
+
+.heroBeacon {
+    fill: #ff4d4d;
+    animation: beacon 1.2s steps(1) infinite;
+}
+
+.heroStrobe {
+    fill: #ffffff;
+    opacity: 0;
+    animation: strobe 1.6s linear infinite;
+}
+
+/* Timeline */
+
+.timeline {
+    --rail: 180px;
+    position: relative;
+    z-index: 1;
+    margin: 80px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.phase {
+    display: grid;
+    position: relative;
+    padding-bottom: 56px;
+    grid-template-columns: var(--rail) minmax(0, 1fr);
+}
+
+.phase:last-child {
+    padding-bottom: 0;
+}
+
+/* Each stage is a runway the plane lands on. */
+.runway {
+    display: flex;
+    position: absolute;
+    z-index: 1;
+    top: -22px;
+    left: calc(var(--rail) - 12px);
+    width: 25px;
+    height: 64px;
+    justify-content: center;
+    border-radius: 3px;
+    background: #1b1e20;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+/* Centerline */
+.runway i {
+    width: 1px;
+    margin: 8px 0;
+    background: repeating-linear-gradient(to bottom, rgba(236, 240, 238, 0.45) 0 3px, transparent 3px 6px);
+}
+
+/* Threshold lights */
+.runway::before,
+.runway::after {
+    position: absolute;
+    right: 3px;
+    left: 3px;
+    height: 2px;
+    content: "";
+    border-radius: 1px;
+    background: #4a504b;
+}
+
+.runway::before {
+    top: 2px;
+}
+
+.runway::after {
+    bottom: 2px;
+}
+
+.phase[data-status="done"] .runway::before,
+.phase[data-status="done"] .runway::after {
+    background: #4ade80;
+}
+
+.phase[data-status="now"] .runway {
+    box-shadow:
+        inset 0 0 0 1px rgba(105, 167, 255, 0.55),
+        0 0 0 5px rgba(105, 167, 255, 0.1);
+}
+
+.phase[data-status="now"] .runway::before,
+.phase[data-status="now"] .runway::after {
+    background: var(--signal);
+}
+
+/* Static route between runways: solid where flown, dashed ahead */
+.phase::after {
+    position: absolute;
+    z-index: 0;
+    top: 42px; /* runway bottom */
+    bottom: 22px; /* next runway top */
+    left: var(--rail);
+    width: 1px;
+    margin-left: -0.5px;
+    content: "";
+}
+
+.phase:last-child::after {
+    content: none;
+}
+
+.phase[data-leg="flown"]::after {
+    background: rgba(105, 167, 255, 0.5);
+}
+
+.phase[data-leg="ahead"]::after {
+    background: repeating-linear-gradient(to bottom, var(--line) 0 4px, transparent 4px 9px);
+}
+
+/* "You are here": a plane parked on the current stage's runway */
+.parked {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    width: 22px;
+    height: 22px;
+    color: #f5f7f4;
+    transform: translate(-50%, -50%);
+}
+
+.parked svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.parked path {
+    fill: currentColor;
+    stroke: rgba(0, 0, 0, 0.35);
+    stroke-width: 0.6;
+}
+
+.navRed {
+    fill: #ff4d4d;
+}
+
+.navGreen {
+    fill: #3dff7a;
+}
+
+/* On the ground only the beacon flashes; strobes stay off. */
+.beacon {
+    fill: #ff4d4d;
+    animation: beacon 1.4s steps(1) infinite;
+}
+
+@keyframes beacon {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.15;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .beacon,
+    .heroStrobe,
+    .heroBeacon {
+        animation: none;
+    }
+}
+
+.meta {
+    display: grid;
+    align-content: start;
+    gap: 8px;
+    padding-right: 32px;
+}
+
+.status {
+    color: #8e9590;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.63rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.phase[data-status="done"] .status {
+    color: #4ade80;
+}
+
+.phase[data-status="now"] .status {
+    color: var(--signal);
+}
+
+.period {
+    color: #c7ccc8;
+    font-size: 0.9rem;
+}
+
+.body {
+    padding-left: 40px;
+}
+
+.body h2 {
+    margin: 0 0 8px;
+    font-size: 1.7rem;
+    font-weight: 540;
+    letter-spacing: -0.045em;
+    line-height: 1.1;
+}
+
+.body > p {
+    margin: 0 0 18px;
+    color: var(--muted);
+    font-size: 0.98rem;
+    line-height: 1.6;
+}
+
+.body ul {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    gap: 10px;
+    list-style: none;
+    color: #c7ccc8;
+    font-size: 0.92rem;
+    line-height: 1.5;
+}
+
+.body li {
+    display: flex;
+    gap: 12px;
+}
+
+.body li::before {
+    width: 12px;
+    margin-top: 0.75em;
+    flex: none;
+    content: "";
+    border-top: 1px solid #4a504b;
+}
+
+.phase[data-status="done"] .body li {
+    color: var(--muted);
+}
+
+/* CTA */
+
+.cta {
+    display: flex;
+    margin-top: 88px;
+    padding-top: 40px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    border-top: 1px solid var(--line);
+}
+
+.cta p {
+    max-width: 440px;
+    margin: 0;
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.ctaButton {
+    flex: none;
+    padding: 0 22px;
+    color: #10130f !important;
+}
+
+/* Light theme */
+
+:global(html:not(.dark)) .hero {
+    --fh-ink: #ffffff;
+    --fh-runway: #3a3f3c;
+    --fh-line: rgba(20, 28, 22, 0.2);
+    --fh-text: #303832;
+    --fh-faint: #6c756e;
+}
+
+:global(html:not(.dark)) .heroAircraft {
+    stroke: rgba(17, 20, 17, 0.55);
+    stroke-width: 0.7;
+}
+
+:global(html:not(.dark)) .heroShadow {
+    fill: #1e2a22;
+}
+
+:global(html:not(.dark)) .heroBeam {
+    mix-blend-mode: normal;
+}
+
+:global(html:not(.dark)) .heroPort[data-status="done"] .heroPeriod {
+    fill: #15803d;
+}
+
+:global(html:not(.dark)) .intro h1 em {
+    color: #858e87;
+}
+
+:global(html:not(.dark)) .runway {
+    background: #3a3f3c;
+}
+
+:global(html:not(.dark)) .runway i {
+    background: repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 0 3px, transparent 3px 6px);
+}
+
+:global(html:not(.dark)) .phase[data-status="done"] .runway::before,
+:global(html:not(.dark)) .phase[data-status="done"] .runway::after {
+    background: #4ade80;
+}
+
+:global(html:not(.dark)) .parked {
+    color: #ffffff;
+}
+
+:global(html:not(.dark)) .parked path {
+    stroke: rgba(17, 20, 17, 0.55);
+}
+
+:global(html:not(.dark)) .phase[data-status="done"] .status {
+    color: #15803d;
+}
+
+:global(html:not(.dark)) .phase[data-leg="flown"]::after {
+    background: rgba(37, 99, 235, 0.45);
+}
+
+:global(html:not(.dark)) .status {
+    color: #6c756e;
+}
+
+:global(html:not(.dark)) .period,
+:global(html:not(.dark)) .body ul {
+    color: #303832;
+}
+
+:global(html:not(.dark)) .body li::before {
+    border-color: #b9c0ba;
+}
+
+:global(html:not(.dark)) .ctaButton {
+    color: #ffffff !important;
+}
+
+/* Mobile: stack meta above body, rail on the left edge */
+
+@media (max-width: 700px) {
+    .hero {
+        margin-top: 40px;
+    }
+
+    .heroPeriod {
+        font-size: 26px;
+    }
+
+    .heroTitle {
+        display: none;
+    }
+
+    .main {
+        padding: 40px 0 80px;
+    }
+
+    .timeline {
+        --rail: 4px;
+        margin-top: 56px;
+    }
+
+    .phase {
+        padding-left: 32px;
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .runway {
+        left: -8px;
+        width: 21px;
+        height: 54px;
+        top: -17px;
+    }
+
+    .phase::after {
+        top: 37px;
+        bottom: 17px;
+    }
+
+    .parked {
+        width: 19px;
+        height: 19px;
+    }
+
+    .meta {
+        display: flex;
+        align-items: baseline;
+        gap: 12px;
+        padding-right: 0;
+    }
+
+    .body {
+        padding-left: 0;
+    }
+
+    .cta {
+        align-items: stretch;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .main {
+        width: calc(100% - 32px);
+    }
+}

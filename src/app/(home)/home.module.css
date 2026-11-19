@@ -75,30 +75,6 @@
         var(--canvas);
 }
 
-.hero::before,
-.hero::after {
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    width: 1px;
-    height: 100%;
-    content: "";
-    background: linear-gradient(
-        transparent 6%,
-        var(--line) 20%,
-        var(--line) 82%,
-        transparent
-    );
-}
-
-.hero::before {
-    left: max(24px, calc(50% - 620px));
-}
-
-.hero::after {
-    right: max(24px, calc(50% - 620px));
-}
-
 .heroGlow {
     position: absolute;
     z-index: -2;
@@ -205,7 +181,7 @@
     font-size: 1.24rem;
     font-weight: 650;
     letter-spacing: -0.045em;
-    font-family: var(--font-spacegrotesk);
+    font-family: var(--font-figtree);
 }
 
 .navLinks {
@@ -217,7 +193,15 @@
 }
 
 .navLinks a {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
     transition: color 180ms ease;
+}
+
+.navLinks svg {
+    width: 15px;
+    height: 15px;
 }
 
 .navLinks a:hover {
@@ -266,7 +250,7 @@
     min-height: 100svh;
     margin: 0 auto;
     padding: clamp(112px, 14vh, 144px) 0 clamp(54px, 8vh, 90px);
-    grid-template-columns: minmax(0, 1.03fr) minmax(410px, 0.97fr);
+    grid-template-columns: minmax(0, 0.92fr) minmax(460px, 1.08fr);
     align-items: center;
     gap: clamp(48px, 7vw, 96px);
 }
@@ -333,8 +317,8 @@
 .hero h1 span,
 .sectionHeading h2 em,
 .ownership h2 em,
-.developer h2 em,
 .openSource h2 em,
+.faq h2 em,
 .finalCta h2 em {
     color: #747b76;
     font-style: normal;
@@ -455,8 +439,7 @@
     letter-spacing: 0.04em;
 }
 
-.commandResult i,
-.sceneStatus i {
+.commandResult i {
     width: 5px;
     height: 5px;
     border-radius: 50%;
@@ -465,392 +448,202 @@
 }
 
 .runwayScene {
-    --flight-distance: 430px;
     position: relative;
-    min-height: 590px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.095);
-    border-radius: 18px;
-    background:
-        linear-gradient(rgba(255, 255, 255, 0.027) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.027) 1px, transparent 1px),
-        linear-gradient(180deg, rgba(18, 21, 22, 0.92), rgba(8, 10, 11, 0.96));
-    background-size:
-        42px 42px,
-        42px 42px,
-        auto;
-    box-shadow:
-        inset 0 1px rgba(255, 255, 255, 0.035),
-        0 40px 100px rgba(0, 0, 0, 0.34),
-        0 0 90px rgba(63, 110, 255, 0.045);
-    isolation: isolate;
 }
 
-.runwayScene::before {
-    position: absolute;
-    z-index: -1;
-    top: 36px;
-    left: 50%;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    content: "";
-    background: rgba(91, 140, 255, 0.1);
-    filter: blur(70px);
-    transform: translateX(-50%);
+.runwayCard {
+    --asphalt: #1b1e20;
+    --paint: rgba(236, 240, 238, 0.34);
+    --paint-bold: rgba(236, 240, 238, 0.5);
+    --edge-light: #f4e3c1;
+    --stage-line: rgba(255, 255, 255, 0.22);
+    --stage-text: #d9ddd9;
+    --stage-muted: #7c837e;
 }
 
-.runwayScene::after {
-    position: absolute;
-    z-index: 5;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    height: 100px;
-    content: "";
-    pointer-events: none;
-    background: linear-gradient(transparent, #090a0a 90%);
+.runwayFigure {
+    position: relative;
+    aspect-ratio: 480 / 420;
 }
 
-.sceneTopline {
-    display: flex;
-    position: absolute;
-    z-index: 6;
-    top: 0;
-    right: 0;
-    left: 0;
-    height: 48px;
-    padding: 0 17px;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.075);
-    color: #626863;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.56rem;
-    letter-spacing: 0.09em;
-}
-
-.sceneStatus {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    color: #808782;
-}
-
-.runway {
-    position: absolute;
-    z-index: 1;
-    top: 74px;
-    bottom: -64px;
-    left: 50%;
-    width: 86%;
-    overflow: hidden;
-    clip-path: polygon(43% 0, 57% 0, 100% 100%, 0 100%);
-    background:
-        linear-gradient(
-            90deg,
-            transparent 49.8%,
-            rgba(255, 255, 255, 0.025) 50%,
-            transparent 50.2%
-        ),
-        linear-gradient(180deg, rgba(66, 72, 76, 0.2), rgba(29, 32, 34, 0.72));
-    transform: translateX(-50%);
-}
-
-.runwayHorizon {
-    position: absolute;
-    top: -2px;
-    left: 50%;
-    width: 44px;
-    height: 7px;
-    border-radius: 50%;
-    background: #b8d2ff;
-    box-shadow:
-        0 0 15px 5px rgba(105, 167, 255, 0.65),
-        0 0 70px 25px rgba(105, 167, 255, 0.2);
-    transform: translateX(-50%);
-}
-
-.runwayEdges {
-    position: absolute;
-    z-index: 2;
-    inset: 0;
+.runwaySvg {
+    display: block;
     width: 100%;
     height: 100%;
-    overflow: visible;
 }
 
-.runwayEdgeBase,
-.runwayEdgeLights {
-    fill: none;
+.asphalt {
+    fill: var(--asphalt);
+}
+
+.paint {
+    fill: var(--paint);
+}
+
+.paintBold {
+    fill: var(--paint-bold);
+}
+
+.edgeLight {
+    fill: var(--edge-light);
+}
+
+.thresholdLight {
+    fill: #4ade80;
+}
+
+.endLight {
+    fill: #f87171;
+}
+
+.centerLight,
+.centerLightPulse {
+    fill: var(--paint);
+}
+
+.centerLightPulse {
+    animation: runwayPulse 4.2s linear infinite;
+}
+
+/* Aircraft taking off down the hero runway (takeoff-plane.tsx) */
+.takeoff {
+    pointer-events: none;
+}
+
+/* White airliner livery: white fuselage, fin and nacelles; grey wings. */
+.takeoffOutline,
+.takeoffWingTop,
+.takeoffFairing,
+.takeoffTailCone {
+    stroke: rgba(0, 0, 0, 0.3);
+    stroke-width: 0.5px;
     vector-effect: non-scaling-stroke;
 }
 
-.runwayEdgeBase {
-    stroke: rgba(255, 255, 255, 0.28);
+.takeoffWingTop {
+    fill: #d9dee1;
+}
+
+.takeoffFlap {
+    fill: #8e969b;
+}
+
+.takeoffFairing {
+    fill: #e9ecee;
+}
+
+.takeoffTailCone {
+    fill: #eef1f3;
+}
+
+.takeoffFanExhaust {
+    fill: #6f777c;
+}
+
+.takeoffCore {
+    fill: #262a2d;
+}
+
+.takeoffPlug {
+    fill: #8c949a;
+}
+
+.takeoffStrut {
+    fill: #9aa2a7;
+}
+
+.takeoffTyre {
+    fill: #17191a;
+}
+
+.takeoffShadow {
+    fill: #000000;
+}
+
+.takeoffNavRed {
+    fill: #ff4d4d;
+}
+
+.takeoffNavGreen {
+    fill: #3dff7a;
+}
+
+.takeoffTailLight,
+.takeoffStrobe {
+    fill: #ffffff;
+}
+
+.takeoffBeacon {
+    fill: #ff3b3b;
+}
+
+.stageMark {
+    stroke: var(--stage-line);
+    stroke-width: 1;
+}
+
+.stageLeader {
+    stroke: var(--stage-line);
+    stroke-width: 1;
+    stroke-dasharray: 2 3;
+}
+
+.stageLive .stageMark,
+.stageLive .stageLeader {
+    stroke: var(--signal);
+}
+
+.stageLive .stageMark {
     stroke-width: 1.5;
 }
 
-.runwayEdgeLights {
-    stroke: #ffbd66;
-    stroke-width: 2.5;
-    stroke-linecap: round;
-    stroke-dasharray: 1 15;
-    filter: drop-shadow(0 0 3px rgba(255, 189, 102, 0.7));
-}
-
-.runwayCenter {
-    position: absolute;
-    top: 26px;
-    bottom: 0;
-    left: 50%;
-    width: 3px;
-    background: repeating-linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.75) 0 14px,
-        transparent 14px 32px
-    );
-    transform: translateX(-50%);
-}
-
-.runwayCenter::after {
-    position: absolute;
-    inset: 0;
-    content: "";
-    background: rgba(255, 255, 255, 0.82);
-    box-shadow: 0 0 14px rgba(255, 255, 255, 0.2);
-    transform: scaleY(0);
-    transform-origin: bottom;
-    transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.runwayScene:hover .runwayCenter::after {
-    transform: scaleY(1);
-}
-
-.runwayThreshold {
-    position: absolute;
-    left: 50%;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.16);
-    transform: translateX(-50%);
-}
-
-.runwayThresholdFar {
-    top: 24%;
-    width: 25%;
-}
-
-.runwayThresholdNear {
-    bottom: 19%;
-    width: 76%;
-}
-
-.runwayPacket {
-    position: absolute;
-    z-index: 4;
-    top: 6%;
-    left: 50%;
-    width: 17px;
-    height: 17px;
-    border: 1px solid rgba(105, 167, 255, 0.65);
-    border-radius: 5px;
-    background: #0e1725;
-    box-shadow:
-        0 0 0 5px rgba(105, 167, 255, 0.08),
-        0 0 22px rgba(105, 167, 255, 0.55);
-    transform: translate3d(-50%, var(--flight-distance), 0) rotate(45deg)
-        scale(1.1);
-    animation: deployFlight 4.8s cubic-bezier(0.55, 0.08, 0.38, 0.95) infinite;
-}
-
-.runwayPacket i {
-    position: absolute;
-    inset: 4px;
-    border-radius: 2px;
-    background: var(--signal);
-}
-
-.runwayLabel {
-    position: absolute;
-    color: rgba(255, 255, 255, 0.22);
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.52rem;
-    letter-spacing: 0.18em;
-}
-
-.runwayLabelBuild {
-    bottom: 24%;
-    left: 25%;
-}
-
-.runwayLabelShip {
-    top: 29%;
-    right: 34%;
-}
-
-.telemetry {
+.stageLabel {
     display: flex;
     position: absolute;
-    z-index: 4;
-    min-width: 208px;
-    min-height: 61px;
-    padding: 10px 12px;
-    align-items: center;
-    gap: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.11);
-    border-radius: 10px;
-    background: rgba(11, 13, 13, 0.83);
-    box-shadow:
-        0 18px 50px rgba(0, 0, 0, 0.3),
-        inset 0 1px rgba(255, 255, 255, 0.035);
-    backdrop-filter: blur(14px);
-}
-
-.telemetryCommit {
-    top: 59%;
-    left: 6%;
-}
-
-.telemetryBuild {
-    top: 39%;
-    right: 5%;
-}
-
-.telemetryLive {
-    top: 18%;
-    left: 7%;
-}
-
-.telemetryCommit::after,
-.telemetryLive::after,
-.telemetryBuild::before {
-    position: absolute;
-    top: 50%;
-    width: 30px;
-    height: 1px;
-    content: "";
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.2), transparent);
-}
-
-.telemetryCommit::after,
-.telemetryLive::after {
-    right: -30px;
-}
-
-.telemetryBuild::before {
-    left: -30px;
-    transform: rotate(180deg);
-}
-
-.telemetryStep {
-    align-self: flex-start;
-    color: #555b56;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.52rem;
-}
-
-.telemetryIcon {
-    display: grid;
-    width: 26px;
-    height: 26px;
-    flex: 0 0 auto;
-    place-items: center;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 7px;
-    background: rgba(255, 255, 255, 0.035);
-}
-
-.telemetryIcon svg {
-    width: 16px;
-    height: 16px;
-    color: #9ca29d;
-    stroke-width: 1.8;
-}
-
-.telemetryIconLive {
-    border-color: rgba(105, 167, 255, 0.26);
-    background: rgba(105, 167, 255, 0.08);
-}
-
-.telemetryIconLive svg {
-    color: var(--signal);
-}
-
-.telemetryIconBuild {
-    border-color: rgba(255, 189, 102, 0.22);
-    background: rgba(255, 189, 102, 0.055);
-}
-
-.telemetryIconBuild svg {
-    color: #d8ae75;
-}
-
-.telemetryCopy {
-    display: flex;
-    min-width: 0;
     flex-direction: column;
-    gap: 5px;
-}
-
-.telemetryCopy small {
-    color: #5f6560;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.5rem;
-    letter-spacing: 0.14em;
-}
-
-.telemetryCopy strong {
-    color: #d4d8d4;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.65rem;
-    font-weight: 450;
+    gap: 3px;
     white-space: nowrap;
+    transform: translateY(-50%);
 }
 
-.telemetryCopy em {
-    color: #777e78;
-    font-style: normal;
+.stageName {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 7px;
+    color: var(--stage-text);
+    font-size: 0.8rem;
+    font-weight: 560;
+    letter-spacing: -0.01em;
 }
 
-.telemetryTime {
-    margin-left: auto;
+.stageName small {
+    color: var(--stage-muted);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.62rem;
+    font-weight: 400;
+}
+
+.stageDetail {
+    padding-left: 22px;
+    color: var(--stage-muted);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.66rem;
+}
+
+.stageLabelLive .stageName {
     color: var(--signal);
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.58rem;
 }
 
-.sceneCaption {
-    display: flex;
-    position: absolute;
-    z-index: 6;
-    right: 17px;
-    bottom: 15px;
-    left: 17px;
-    justify-content: space-between;
-    color: #444945;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.5rem;
-    letter-spacing: 0.12em;
-}
-
-@keyframes deployFlight {
-    0%,
-    8% {
-        opacity: 0;
-        transform: translate3d(-50%, var(--flight-distance), 0) rotate(45deg)
-            scale(1.1);
+@keyframes runwayPulse {
+    0% {
+        fill: var(--signal);
+        filter: drop-shadow(0 0 3px var(--signal));
     }
 
-    15%,
-    72% {
-        opacity: 1;
-    }
-
-    84%,
+    10%,
     100% {
-        opacity: 0;
-        transform: translate3d(-50%, 0, 0) rotate(45deg) scale(0.35);
+        fill: var(--paint);
+        filter: none;
     }
 }
 
@@ -870,6 +663,76 @@
 }
 
 .section,
+.faq {
+    --faq-text: #d9ddd9;
+    --faq-muted: #888f89;
+    background: var(--canvas);
+}
+
+.faqGrid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    align-items: start;
+    gap: clamp(40px, 7vw, 96px);
+}
+
+.faqIntro h2 {
+    margin: 0;
+}
+
+.faqList {
+    border-top: 1px solid var(--line);
+}
+
+.faqList details {
+    border-bottom: 1px solid var(--line);
+}
+
+.faqList summary {
+    display: flex;
+    padding: 22px 0;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    color: var(--faq-text);
+    font-size: 1.02rem;
+    font-weight: 520;
+    letter-spacing: -0.015em;
+    cursor: pointer;
+    list-style: none;
+}
+
+.faqList summary::-webkit-details-marker {
+    display: none;
+}
+
+.faqList summary:focus-visible {
+    outline: 2px solid var(--signal);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+.faqList summary svg {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 auto;
+    color: var(--faq-muted);
+    transition: transform 200ms ease;
+}
+
+.faqList details[open] summary svg {
+    transform: rotate(45deg);
+}
+
+.faqList details p {
+    max-width: 620px;
+    margin: -6px 0 0;
+    padding: 0 40px 24px 0;
+    color: var(--faq-muted);
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
+
 .finalCta {
     scroll-margin-top: 92px;
 }
@@ -905,8 +768,8 @@
 
 .sectionHeading h2,
 .ownership h2,
-.developer h2,
 .openSource h2,
+.faq h2,
 .finalCta h2 {
     margin: 0;
     font-size: clamp(2.8rem, 5.3vw, 5rem);
@@ -918,7 +781,6 @@
 .sectionHeading > p:last-child,
 .headingSplit > p,
 .ownershipLede,
-.developerCopy > p,
 .openSourcePanel > p,
 .finalInner > p {
     color: var(--muted);
@@ -991,79 +853,37 @@
 .bento {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
 }
 
 .featureCard {
+    --pad-l: 40px;
+    --pad-r: 40px;
     position: relative;
     min-height: 380px;
     overflow: hidden;
-    padding: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.09);
-    border-radius: 15px;
-    background: linear-gradient(
-        145deg,
-        rgba(255, 255, 255, 0.035),
-        rgba(255, 255, 255, 0.012)
-    );
-    box-shadow: inset 0 1px rgba(255, 255, 255, 0.025);
-    transition:
-        border-color 160ms ease-out,
-        background-color 160ms ease-out,
-        box-shadow 160ms ease-out;
+    padding: 40px var(--pad-r) 40px var(--pad-l);
+    border-bottom: 1px solid var(--line);
 }
 
-.featureCard:hover {
-    border-color: rgba(105, 167, 255, 0.2);
-    background-color: rgba(105, 167, 255, 0.018);
-    box-shadow:
-        inset 0 1px rgba(255, 255, 255, 0.04),
-        0 14px 38px rgba(0, 0, 0, 0.16);
+.featureCard:nth-child(odd) {
+    --pad-l: 0px;
+    border-right: 1px solid var(--line);
+}
+
+.featureCard:nth-child(even) {
+    --pad-r: 0px;
+}
+
+.featureCard:nth-last-child(-n + 2) {
+    border-bottom: 0;
 }
 
 .featureDeploy {
     min-height: 500px;
 }
 
-.featureHeader {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.iconBox {
-    display: inline-grid;
-    width: 38px;
-    height: 38px;
-    flex: 0 0 auto;
-    place-items: center;
-    border: 1px solid rgba(105, 167, 255, 0.2);
-    border-radius: 9px;
-    color: var(--signal);
-    background: rgba(105, 167, 255, 0.07);
-}
-
-.iconBoxAmber {
-    border-color: rgba(255, 189, 102, 0.2);
-    color: #d8ae75;
-    background: rgba(255, 189, 102, 0.055);
-}
-
-.iconBox svg {
-    width: 18px;
-    height: 18px;
-    stroke-width: 1.7;
-}
-
-.featureIndex {
-    color: #555b56;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.57rem;
-    letter-spacing: 0.11em;
-}
-
 .featureCard h3 {
-    margin: 30px 0 10px;
+    margin: 0 0 10px;
     font-size: 1.48rem;
     font-weight: 520;
     letter-spacing: -0.04em;
@@ -1077,105 +897,210 @@
     line-height: 1.65;
 }
 
-.commitVisual {
-    display: flex;
-    position: absolute;
-    right: 30px;
-    bottom: 30px;
-    left: 30px;
-    min-height: 270px;
-    padding: 28px;
-    align-items: flex-end;
-    border: 1px solid rgba(255, 255, 255, 0.075);
-    border-radius: 12px;
-    background:
-        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-        radial-gradient(
-            circle at 70% 20%,
-            rgba(105, 167, 255, 0.1),
-            transparent 45%
-        ),
-        #0d0f0f;
-    background-size:
-        34px 34px,
-        34px 34px,
-        auto,
-        auto;
-}
-
-.commitVisual::before {
-    position: absolute;
-    top: 16%;
-    bottom: 25%;
-    left: 50%;
-    width: 1px;
-    content: "";
-    background: linear-gradient(var(--signal), rgba(105, 167, 255, 0.1));
-    box-shadow: 0 0 18px rgba(105, 167, 255, 0.22);
-}
-
-.commitVisual::after {
-    position: absolute;
-    top: 14%;
-    left: calc(50% - 4px);
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    content: "";
-    background: var(--signal);
-    box-shadow: 0 0 15px rgba(105, 167, 255, 0.7);
-}
-
-.commitVisual > div {
+.deployVisual {
     display: grid;
-    z-index: 1;
+    position: absolute;
+    right: var(--pad-r);
+    bottom: 40px;
+    left: var(--pad-l);
+    gap: 22px;
+}
+
+.deployGraph {
+    display: block;
     width: 100%;
-    padding: 15px;
-    grid-template-columns: auto 1fr;
-    gap: 4px 11px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 9px;
-    background: rgba(10, 12, 12, 0.88);
+    height: auto;
+    overflow: visible;
 }
 
-.commitAvatar {
+.graphMain,
+.graphBranch,
+.graphFuture,
+.graphTravel {
+    fill: none;
+    stroke-width: 1.5;
+}
+
+.graphMain,
+.graphBranch {
+    stroke: rgba(255, 255, 255, 0.2);
+}
+
+.graphFuture {
+    stroke: rgba(255, 255, 255, 0.1);
+    stroke-dasharray: 3 5;
+}
+
+.graphTravel {
+    stroke: var(--signal);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-dasharray: 16 100;
+    stroke-dashoffset: 16;
+    animation: graphTravel 6s cubic-bezier(0.45, 0, 0.3, 1) infinite;
+}
+
+.graphCommit {
+    fill: var(--canvas);
+    stroke: rgba(255, 255, 255, 0.38);
+    stroke-width: 1.5;
+}
+
+.graphHead {
+    fill: #d29922;
+    animation: graphHead 6s linear infinite;
+}
+
+.graphPulse {
+    fill: none;
+    stroke: #d29922;
+    stroke-width: 1.5;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: graphPulse 6s ease-out infinite;
+}
+
+.graphLabel {
+    fill: #6b726c;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 11px;
+}
+
+.commitVisual {
     display: grid;
-    width: 28px;
-    height: 28px;
-    grid-row: span 2;
-    place-items: center;
-    border-radius: 7px;
-    color: #0b1018;
-    background: var(--signal);
-    font-size: 0.65rem;
-    font-weight: 700;
+    padding: 16px 18px;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 14px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+}
+
+.commitStatus {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #d29922;
+    animation: graphHead 6s linear infinite;
+}
+
+.commitBody {
+    display: grid;
+    min-width: 0;
+    gap: 5px;
 }
 
 .commitVisual strong {
+    overflow: hidden;
     color: #cdd2ce;
-    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-    font-size: 0.66rem;
-    font-weight: 450;
+    font-size: 0.88rem;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .commitVisual small {
-    color: #626863;
+    color: #6b726c;
     font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-    font-size: 0.55rem;
+    font-size: 0.7rem;
 }
 
-.commitBranch {
-    position: absolute;
-    top: 28px;
-    right: 28px;
-    padding: 6px 9px;
-    border: 1px solid rgba(255, 255, 255, 0.09);
-    border-radius: 999px;
-    color: #7c837d;
-    background: rgba(0, 0, 0, 0.25);
-    font-family: ui-monospace, monospace;
-    font-size: 0.55rem;
+.commitState {
+    display: grid;
+    justify-items: end;
+}
+
+.commitState em {
+    grid-area: 1 / 1;
+    font-size: 0.76rem;
+    font-style: normal;
+}
+
+.commitState em:first-child {
+    color: #d29922;
+    animation: stateBuilding 6s linear infinite;
+}
+
+.commitState em:last-child {
+    color: #3fb950;
+    opacity: 0;
+    animation: stateReady 6s linear infinite;
+}
+
+@keyframes graphTravel {
+    0% {
+        stroke-dashoffset: 16;
+    }
+
+    50%,
+    100% {
+        stroke-dashoffset: -100;
+    }
+}
+
+@keyframes graphHead {
+    0%,
+    54% {
+        fill: #d29922;
+        background: #d29922;
+    }
+
+    58%,
+    96% {
+        fill: #3fb950;
+        background: #3fb950;
+    }
+
+    100% {
+        fill: #d29922;
+        background: #d29922;
+    }
+}
+
+@keyframes graphPulse {
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+
+    10%,
+    30% {
+        opacity: 0.7;
+        transform: scale(1);
+    }
+
+    25%,
+    45% {
+        opacity: 0;
+        transform: scale(2.2);
+    }
+}
+
+@keyframes stateBuilding {
+    0%,
+    54%,
+    100% {
+        opacity: 1;
+    }
+
+    58%,
+    96% {
+        opacity: 0;
+    }
+}
+
+@keyframes stateReady {
+    0%,
+    54%,
+    100% {
+        opacity: 0;
+    }
+
+    58%,
+    96% {
+        opacity: 1;
+    }
 }
 
 .stackOrbit {
@@ -1326,9 +1251,9 @@
 .metricsVisual {
     display: flex;
     position: absolute;
-    right: 30px;
-    bottom: 30px;
-    left: 30px;
+    right: var(--pad-r);
+    bottom: 40px;
+    left: var(--pad-l);
     height: 105px;
     padding: 0 12px;
     align-items: flex-end;
@@ -1338,8 +1263,7 @@
 
 .metricsVisual span {
     flex: 1;
-    border: 1px solid rgba(105, 167, 255, 0.22);
-    border-bottom: 0;
+    border-top: 1px solid rgba(105, 167, 255, 0.5);
     background: linear-gradient(
         rgba(105, 167, 255, 0.3),
         rgba(105, 167, 255, 0.04)
@@ -1349,21 +1273,19 @@
 .serverVisual {
     display: grid;
     position: absolute;
-    right: 30px;
-    bottom: 30px;
-    left: 30px;
-    gap: 7px;
+    right: var(--pad-r);
+    bottom: 40px;
+    left: var(--pad-l);
+    border-bottom: 1px solid var(--line);
 }
 
 .serverVisual span {
     display: flex;
-    padding: 11px 13px;
+    padding: 13px 0;
     align-items: center;
     gap: 9px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 7px;
+    border-top: 1px solid var(--line);
     color: #8d948e;
-    background: #0d0f0f;
     font-family: ui-monospace, monospace;
     font-size: 0.59rem;
 }
@@ -1374,6 +1296,12 @@
     border-radius: 50%;
     background: var(--signal);
     box-shadow: 0 0 8px rgba(105, 167, 255, 0.6);
+}
+
+.serverVisual strong {
+    color: #cdd2ce;
+    font-family: inherit;
+    font-weight: 500;
 }
 
 .serverVisual em {
@@ -1576,329 +1504,106 @@
     font-weight: 520;
 }
 
-.infraMap {
-    position: relative;
-    min-height: 540px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.09);
-    border-radius: 16px;
-    background: #090b0b;
+.securityVisual {
+    min-width: 0;
 }
 
-.infraGrid {
-    position: absolute;
-    inset: 0;
-    opacity: 0.45;
-    background-image:
-        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-    background-size: 38px 38px;
-    mask-image: linear-gradient(black, transparent);
-}
-
-.infraRoutes {
-    position: absolute;
-    inset: 0;
+.securityDiagram {
+    --sd-line: rgba(255, 255, 255, 0.16);
+    --sd-text: #d9ddd9;
+    --sd-muted: #7c837e;
+    --sd-faint: #5d645f;
+    display: block;
     width: 100%;
-    height: 100%;
-    fill: #090b0b;
-    stroke: rgba(105, 167, 255, 0.42);
+    height: auto;
+    overflow: visible;
+}
+
+.sdNode {
+    fill: var(--canvas);
+    stroke: var(--sd-line);
     stroke-width: 1;
-    vector-effect: non-scaling-stroke;
 }
 
-.infraRoutes circle {
-    fill: var(--signal);
-    stroke: none;
-    filter: drop-shadow(0 0 6px var(--signal));
+.sdNodeCore {
+    stroke: rgba(105, 167, 255, 0.55);
 }
 
-.infraNode {
-    display: flex;
-    position: absolute;
-    z-index: 2;
-    width: 146px;
-    min-height: 82px;
-    padding: 13px;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 9px;
-    background: rgba(14, 16, 16, 0.92);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.24);
+.sdBoundary {
+    fill: none;
+    stroke: var(--sd-line);
+    stroke-dasharray: 4 5;
 }
 
-.infraNode small {
-    color: #7d847e;
-    font-family: ui-monospace, monospace;
-    font-size: 0.48rem;
-    letter-spacing: 0.13em;
+.sdEdge {
+    fill: none;
+    stroke: var(--sd-line);
+    stroke-width: 1.25;
 }
 
-.infraNode strong {
-    color: #c9ceca;
-    font-family: ui-monospace, monospace;
-    font-size: 0.69rem;
-    font-weight: 450;
+.sdArrow {
+    fill: var(--sd-muted);
 }
 
-.infraNode span {
-    color: #828983;
-    font-family: ui-monospace, monospace;
-    font-size: 0.54rem;
-}
-
-.infraNode span i {
-    display: inline-block;
-    width: 4px;
-    height: 4px;
-    margin-right: 4px;
-    border-radius: 50%;
-    background: var(--signal);
-}
-
-.infraSource {
-    top: 42%;
-    left: 5%;
-}
-
-.infraRunvey {
-    top: 39%;
-    left: 44%;
-    width: 112px;
-    align-items: center;
-    border-color: rgba(105, 167, 255, 0.25);
-    background: rgba(17, 27, 40, 0.94);
-}
-
-.infraRunvey .logoMark {
-    width: 25px;
-    height: 25px;
-}
-
-.infraRunvey .logoFrame {
-    display: none;
-}
-
-.infraRunvey .logoEdge,
-.infraRunvey .logoRunway {
+.sdFlow {
+    fill: none;
     stroke: var(--signal);
-    stroke-width: 1.7;
+    stroke-width: 1.5;
+    stroke-dasharray: 3 9;
+    animation: sdFlow 1.4s linear infinite;
 }
 
-.infraApp {
-    top: 19%;
-    right: 4%;
+.sdIcon {
+    color: var(--sd-muted);
 }
 
-.infraWorker {
-    right: 4%;
-    bottom: 18%;
+.sdTitle {
+    fill: var(--sd-text);
+    font-size: 13px;
+    font-weight: 550;
 }
 
-.infraLegend {
-    position: absolute;
-    right: 15px;
-    bottom: 13px;
-    color: #505650;
-    font-family: ui-monospace, monospace;
-    font-size: 0.5rem;
-    letter-spacing: 0.1em;
+.sdSub,
+.sdSubFaint,
+.sdLabel {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
-.infraLegend i {
-    display: inline-block;
-    width: 5px;
-    height: 5px;
-    margin-right: 6px;
-    border-radius: 50%;
-    background: var(--signal);
+.sdSub {
+    fill: var(--sd-muted);
+    font-size: 11px;
 }
 
-.developer {
-    background: var(--canvas);
+.sdSubFaint {
+    fill: var(--sd-faint);
+    font-size: 11px;
 }
 
-.developerGrid {
-    display: grid;
-    grid-template-columns: 1.08fr 0.92fr;
-    align-items: center;
-    gap: clamp(60px, 8vw, 110px);
+.sdLabel {
+    fill: var(--sd-muted);
+    font-size: 10.5px;
 }
 
-.terminalWindow {
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 14px;
-    background: #0c0e0e;
-    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.34);
+.sdDot {
+    fill: #3fb950;
 }
 
-.terminalBar {
-    display: grid;
-    height: 48px;
-    padding: 0 15px;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.terminalBar > span {
-    display: flex;
-    gap: 6px;
-}
-
-.terminalBar > span i {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: #313632;
-}
-
-.terminalBar small {
-    color: #5d645e;
-    font-family: ui-monospace, monospace;
-    font-size: 0.55rem;
-}
-
-.terminalBar em {
-    justify-self: end;
-    padding: 3px 5px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 4px;
-    color: #535954;
-    font-family: ui-monospace, monospace;
-    font-size: 0.52rem;
-    font-style: normal;
-}
-
-.terminalWindow pre {
-    min-height: 440px;
-    overflow-x: auto;
-    margin: 0;
-    padding: 34px;
-    color: #8e958f;
-    font:
-        0.72rem/1.85 ui-monospace,
-        SFMono-Regular,
-        Menlo,
-        monospace;
-}
-
-.terminalMuted,
-.terminalLog {
-    color: #7a817b;
-}
-
-.terminalCommand {
-    color: #e1e4e1;
-}
-
-.terminalBlue {
-    color: var(--signal);
-}
-
-.terminalLive {
-    color: #c4d8ff;
-    text-shadow: 0 0 12px rgba(105, 167, 255, 0.45);
-}
-
-.developerCopy > p {
-    max-width: 470px;
-    margin: 27px 0 0;
-}
-
-.developerLinks {
-    margin-top: 40px;
-    border-top: 1px solid var(--line);
-}
-
-.developerLinks > a {
-    display: grid;
-    padding: 17px 0;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    gap: 14px;
-    border-bottom: 1px solid var(--line);
-}
-
-.developerLinks .iconBox {
-    width: 34px;
-    height: 34px;
-}
-
-.developerLinks > a > span:nth-child(2) {
-    display: grid;
-    gap: 4px;
-}
-
-.developerLinks strong {
-    color: #cbd0cc;
-    font-size: 0.84rem;
-    font-weight: 520;
-}
-
-.developerLinks small {
-    color: #858c86;
-    font-size: 0.7rem;
-}
-
-.developerLinks > a > svg {
-    width: 18px;
-    color: #616862;
-    transition:
-        color 180ms ease,
-        transform 180ms ease;
-}
-
-.developerLinks a:hover > svg {
-    color: var(--signal);
-    transform: translateX(4px);
+@keyframes sdFlow {
+    to {
+        stroke-dashoffset: -24;
+    }
 }
 
 .openSource {
-    padding-top: 0;
     background: var(--canvas);
 }
 
 .openSourcePanel {
     display: flex;
     position: relative;
-    min-height: 620px;
-    overflow: hidden;
-    margin-top: 8rem;
-    padding: 90px 48px;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(105, 167, 255, 0.18);
-    border-radius: 18px;
     text-align: center;
-    background:
-        radial-gradient(
-            circle at 50% 45%,
-            rgba(105, 167, 255, 0.12),
-            transparent 35%
-        ),
-        #0c0e10;
-}
-
-.openSourceMark {
-    display: grid;
-    z-index: 1;
-    width: 62px;
-    height: 62px;
-    margin-bottom: 30px;
-    place-items: center;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 17px;
-    background: rgba(255, 255, 255, 0.04);
-    box-shadow: 0 0 60px rgba(105, 167, 255, 0.12);
-}
-
-.openSourceMark svg {
-    width: 27px;
 }
 
 .openSourcePanel .kicker {
@@ -1916,30 +1621,6 @@
 .openSourcePanel > p {
     max-width: 610px;
     margin: 27px 0 34px;
-}
-
-.openSourceRings i {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    border: 1px solid rgba(105, 167, 255, 0.07);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.openSourceRings i:first-child {
-    width: 340px;
-    height: 340px;
-}
-
-.openSourceRings i:nth-child(2) {
-    width: 530px;
-    height: 530px;
-}
-
-.openSourceRings i:last-child {
-    width: 760px;
-    height: 760px;
 }
 
 .finalCta {
@@ -2106,9 +1787,10 @@
 }
 
 .footerBottom {
-    display: flex;
+    display: grid;
     padding-top: 22px;
-    justify-content: space-between;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
     border-top: 1px solid var(--line);
     color: #7f8680;
     font-family: ui-monospace, monospace;
@@ -2116,7 +1798,28 @@
     letter-spacing: 0.06em;
 }
 
+.footerMaker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #9aa09b;
+    font-family: var(--font-manrope);
+    font-size: 0.78rem;
+    letter-spacing: 0;
+    transition: color 180ms ease;
+}
+
+.footerMaker:hover {
+    color: var(--ink);
+}
+
+.matchouseLogo {
+    color: #ffffff;
+    font-size: 0.95rem;
+}
+
 .footerStatus {
+    justify-self: end;
     display: inline-flex;
     align-items: center;
     gap: 7px;
@@ -2239,123 +1942,21 @@
     color: #313933;
 }
 
-:global(html:not(.dark)) .runwayScene {
-    border-color: rgba(18, 28, 20, 0.145);
-    background:
-        linear-gradient(rgba(18, 28, 20, 0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(18, 28, 20, 0.035) 1px, transparent 1px),
-        linear-gradient(
-            180deg,
-            rgba(250, 252, 252, 0.98),
-            rgba(228, 234, 231, 0.98)
-        );
-    background-size:
-        42px 42px,
-        42px 42px,
-        auto;
-    box-shadow:
-        inset 0 1px #ffffff,
-        0 38px 90px rgba(30, 42, 33, 0.105),
-        0 2px 8px rgba(30, 42, 33, 0.045);
+:global(html:not(.dark)) .takeoffOutline,
+:global(html:not(.dark)) .takeoffWingTop,
+:global(html:not(.dark)) .takeoffFairing,
+:global(html:not(.dark)) .takeoffTailCone {
+    stroke: rgba(17, 20, 17, 0.45);
 }
 
-:global(html:not(.dark)) .runwayScene::after {
-    background: linear-gradient(transparent, #edf0ef 90%);
-}
-
-:global(html:not(.dark)) .sceneTopline {
-    border-color: rgba(18, 28, 20, 0.1);
-    color: #747c76;
-}
-
-:global(html:not(.dark)) .sceneStatus {
-    color: #667069;
-}
-
-:global(html:not(.dark)) .runway {
-    background:
-        linear-gradient(
-            90deg,
-            transparent 49.8%,
-            rgba(20, 28, 22, 0.04) 50%,
-            transparent 50.2%
-        ),
-        linear-gradient(
-            180deg,
-            rgba(141, 153, 146, 0.12),
-            rgba(92, 104, 97, 0.32)
-        );
-}
-
-:global(html:not(.dark)) .runwayEdgeBase {
-    stroke: rgba(20, 28, 22, 0.36);
-}
-
-:global(html:not(.dark)) .runwayCenter {
-    background: repeating-linear-gradient(
-        to bottom,
-        rgba(28, 36, 30, 0.6) 0 14px,
-        transparent 14px 32px
-    );
-}
-
-:global(html:not(.dark)) .runwayCenter::after {
-    background: rgba(37, 99, 235, 0.52);
-    box-shadow: 0 0 14px rgba(37, 99, 235, 0.16);
-}
-
-:global(html:not(.dark)) .runwayThreshold {
-    background: rgba(24, 34, 27, 0.18);
-}
-
-:global(html:not(.dark)) .runwayLabel {
-    color: rgba(31, 42, 34, 0.38);
-}
-
-:global(html:not(.dark)) .runwayPacket {
-    background: #edf5ff;
-}
-
-:global(html:not(.dark)) .telemetry {
-    border-color: rgba(18, 28, 20, 0.14);
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow:
-        0 16px 42px rgba(30, 42, 33, 0.13),
-        inset 0 1px #ffffff;
-}
-
-:global(html:not(.dark)) .telemetryIcon {
-    border-color: rgba(18, 28, 20, 0.12);
-    background: rgba(18, 28, 20, 0.035);
-}
-
-:global(html:not(.dark)) .telemetryIcon svg {
-    color: #667069;
-}
-
-:global(html:not(.dark)) .telemetryIconLive svg {
-    color: var(--signal);
-}
-
-:global(html:not(.dark)) .telemetryIconBuild svg {
-    color: #a96e20;
-}
-
-:global(html:not(.dark)) .telemetryCopy small,
-:global(html:not(.dark)) .telemetryStep {
-    color: #7d857f;
-}
-
-:global(html:not(.dark)) .telemetryCopy strong {
-    color: #29312b;
-}
-
-:global(html:not(.dark)) .telemetryCopy em {
-    color: #69726b;
-}
-
-:global(html:not(.dark)) .sceneCaption {
-    color: #7f8881;
+:global(html:not(.dark)) .runwayCard {
+    --asphalt: #3a3f3c;
+    --paint: rgba(255, 255, 255, 0.55);
+    --paint-bold: rgba(255, 255, 255, 0.75);
+    --edge-light: #ffe7b8;
+    --stage-line: rgba(20, 28, 22, 0.28);
+    --stage-text: #232a25;
+    --stage-muted: #6b746d;
 }
 
 :global(html:not(.dark)) .signalStrip {
@@ -2379,7 +1980,6 @@
 }
 
 :global(html:not(.dark)) .journey,
-:global(html:not(.dark)) .developer,
 :global(html:not(.dark)) .openSource,
 :global(html:not(.dark)) .finalCta {
     background: var(--canvas);
@@ -2387,8 +1987,8 @@
 
 :global(html:not(.dark)) .sectionHeading h2 em,
 :global(html:not(.dark)) .ownership h2 em,
-:global(html:not(.dark)) .developer h2 em,
 :global(html:not(.dark)) .openSource h2 em,
+:global(html:not(.dark)) .faq h2 em,
 :global(html:not(.dark)) .finalCta h2 em {
     color: #818a83;
 }
@@ -2397,72 +1997,39 @@
     color: #6c756e;
 }
 
-:global(html:not(.dark)) .featureCard {
-    border-color: rgba(18, 28, 20, 0.115);
-    background: linear-gradient(
-        145deg,
-        rgba(255, 255, 255, 0.98),
-        rgba(246, 248, 246, 0.9)
-    );
-    box-shadow:
-        inset 0 1px #ffffff,
-        0 8px 26px rgba(30, 42, 33, 0.035);
-}
-
-:global(html:not(.dark)) .featureCard:hover {
-    border-color: rgba(37, 99, 235, 0.28);
-    background: #ffffff;
-    box-shadow: 0 14px 35px rgba(30, 42, 33, 0.08);
-}
-
 :global(html:not(.dark)) .featureCard > p {
     color: #667069;
 }
 
-:global(html:not(.dark)) .featureIndex {
-    color: #818a83;
-}
-
-:global(html:not(.dark)) .commitVisual {
-    border-color: rgba(18, 28, 20, 0.1);
-    background:
-        linear-gradient(rgba(18, 28, 20, 0.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(18, 28, 20, 0.045) 1px, transparent 1px),
-        radial-gradient(
-            circle at 70% 20%,
-            rgba(37, 99, 235, 0.12),
-            transparent 45%
-        ),
-        #f8faf8;
-    background-size:
-        34px 34px,
-        34px 34px,
-        auto,
-        auto;
-}
-
-:global(html:not(.dark)) .commitVisual > div,
-:global(html:not(.dark)) .serverVisual span {
-    border-color: rgba(18, 28, 20, 0.11);
-    background: rgba(255, 255, 255, 0.92);
-}
-
 :global(html:not(.dark)) .commitVisual strong {
-    color: #343c36;
+    color: #29312b;
 }
 
 :global(html:not(.dark)) .commitVisual small,
-:global(html:not(.dark)) .commitBranch {
-    color: #687169;
+:global(html:not(.dark)) .graphLabel {
+    color: #6b746d;
+    fill: #6b746d;
 }
 
-:global(html:not(.dark)) .commitBranch {
-    border-color: rgba(18, 28, 20, 0.1);
-    background: rgba(255, 255, 255, 0.65);
+:global(html:not(.dark)) .graphMain,
+:global(html:not(.dark)) .graphBranch {
+    stroke: rgba(20, 28, 22, 0.22);
+}
+
+:global(html:not(.dark)) .graphFuture {
+    stroke: rgba(20, 28, 22, 0.14);
+}
+
+:global(html:not(.dark)) .graphCommit {
+    stroke: rgba(20, 28, 22, 0.4);
 }
 
 :global(html:not(.dark)) .metricsVisual {
     border-color: rgba(18, 28, 20, 0.13);
+}
+
+:global(html:not(.dark)) .serverVisual strong {
+    color: #29312b;
 }
 
 :global(html:not(.dark)) .serverVisual span {
@@ -2516,101 +2083,16 @@
     color: #343c36;
 }
 
-:global(html:not(.dark)) .infraMap {
-    border-color: rgba(18, 28, 20, 0.115);
-    background: #fafcfb;
-    box-shadow:
-        inset 0 1px #ffffff,
-        0 24px 60px rgba(30, 42, 33, 0.055);
+:global(html:not(.dark)) .faq {
+    --faq-text: #232a25;
+    --faq-muted: #626b64;
 }
 
-:global(html:not(.dark)) .infraGrid {
-    background-image:
-        linear-gradient(rgba(18, 28, 20, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(18, 28, 20, 0.05) 1px, transparent 1px);
-}
-
-:global(html:not(.dark)) .infraRoutes {
-    fill: #f8faf8;
-}
-
-:global(html:not(.dark)) .infraNode {
-    border-color: rgba(18, 28, 20, 0.12);
-    background: rgba(255, 255, 255, 0.94);
-    box-shadow: 0 14px 34px rgba(30, 42, 33, 0.1);
-}
-
-:global(html:not(.dark)) .infraNode strong {
-    color: #303832;
-}
-
-:global(html:not(.dark)) .infraNode span,
-:global(html:not(.dark)) .infraNode small {
-    color: #687169;
-}
-
-:global(html:not(.dark)) .infraRunvey {
-    background: #eef5ff;
-}
-
-:global(html:not(.dark)) .terminalWindow {
-    border-color: rgba(18, 28, 20, 0.12);
-    background: #ffffff;
-    box-shadow:
-        0 28px 65px rgba(30, 42, 33, 0.09),
-        0 2px 8px rgba(30, 42, 33, 0.045);
-}
-
-:global(html:not(.dark)) .terminalBar {
-    border-color: rgba(18, 28, 20, 0.1);
-}
-
-:global(html:not(.dark)) .terminalBar > span i {
-    background: #c8cec9;
-}
-
-:global(html:not(.dark)) .terminalWindow pre {
-    color: #59625b;
-}
-
-:global(html:not(.dark)) .terminalCommand {
-    color: #202721;
-}
-
-:global(html:not(.dark)) .terminalMuted,
-:global(html:not(.dark)) .terminalLog {
-    color: #7b847d;
-}
-
-:global(html:not(.dark)) .terminalLive {
-    color: #255bb4;
-}
-
-:global(html:not(.dark)) .developerLinks strong {
-    color: #363e38;
-}
-
-:global(html:not(.dark)) .developerLinks small {
-    color: #737c75;
-}
-
-:global(html:not(.dark)) .openSourcePanel {
-    border-color: rgba(37, 99, 235, 0.2);
-    background:
-        radial-gradient(
-            circle at 50% 43%,
-            rgba(37, 99, 235, 0.115),
-            transparent 35%
-        ),
-        linear-gradient(145deg, #fafcff, #f2f6fa);
-    box-shadow:
-        inset 0 1px #ffffff,
-        0 28px 70px rgba(30, 42, 33, 0.06);
-}
-
-:global(html:not(.dark)) .openSourceMark {
-    border-color: rgba(18, 28, 20, 0.13);
-    background: rgba(255, 255, 255, 0.8);
+:global(html:not(.dark)) .securityDiagram {
+    --sd-line: rgba(20, 28, 22, 0.2);
+    --sd-text: #232a25;
+    --sd-muted: #6b746d;
+    --sd-faint: #8a928c;
 }
 
 :global(html:not(.dark)) .finalRunway i:nth-child(2) {
@@ -2628,6 +2110,14 @@
 :global(html:not(.dark)) .footerBrand > p,
 :global(html:not(.dark)) .footerBottom {
     color: #69726b;
+}
+
+:global(html:not(.dark)) .footerMaker {
+    color: #58615a;
+}
+
+:global(html:not(.dark)) .matchouseLogo {
+    color: #0d0d0d;
 }
 
 :global(html:not(.dark)) .footerLinks strong {
@@ -2667,18 +2157,16 @@
     }
 
     .runwayScene {
-        width: min(600px, 100%);
-        min-height: 500px;
+        width: min(620px, 100%);
         margin: 0 auto;
+        text-align: left;
     }
 
-    .ownershipGrid,
-    .developerGrid {
+    .ownershipGrid {
         grid-template-columns: 1fr;
     }
 
-    .ownershipGrid,
-    .developerGrid {
+    .ownershipGrid {
         gap: 70px;
     }
 
@@ -2686,18 +2174,13 @@
         max-width: 680px;
     }
 
-    .infraMap {
-        width: min(680px, 100%);
+    .securityVisual {
+        width: min(600px, 100%);
         margin: 0 auto;
     }
 
-    .developerCopy {
-        max-width: 650px;
-        order: -1;
-    }
-
-    .terminalWindow {
-        width: min(720px, 100%);
+    .faqGrid {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -2727,12 +2210,7 @@
         gap: 0;
     }
 
-    .navLinks a:not(:nth-child(2)) {
-        display: none;
-    }
-
-    .hero::before,
-    .hero::after {
+    .navLinks a:not(:last-child) {
         display: none;
     }
 
@@ -2751,36 +2229,6 @@
     .hero h1 {
         margin-top: 26px;
         line-height: 0.98;
-    }
-
-    .runwayScene {
-        --flight-distance: 320px;
-        min-height: 440px;
-        border-radius: 14px;
-    }
-
-    .runway {
-        top: 68px;
-        width: 100%;
-    }
-
-    .telemetry {
-        min-width: 185px;
-    }
-
-    .telemetryCommit {
-        top: 61%;
-        left: 4%;
-    }
-
-    .telemetryBuild {
-        top: 40%;
-        right: 4%;
-    }
-
-    .telemetryLive {
-        top: 18%;
-        left: 4%;
     }
 
     .section {
@@ -2806,8 +2254,8 @@
 
     .sectionHeading h2,
     .ownership h2,
-    .developer h2,
     .openSource h2,
+    .faq h2,
     .finalCta h2 {
         font-size: clamp(2.75rem, 12.3vw, 4.4rem);
     }
@@ -2830,6 +2278,16 @@
         grid-template-columns: 1fr;
     }
 
+    .featureCard:nth-child(n) {
+        --pad-l: 0px;
+        --pad-r: 0px;
+        border-right: 0;
+    }
+
+    .featureCard:nth-last-child(2) {
+        border-bottom: 1px solid var(--line);
+    }
+
     .featureCard {
         min-height: 350px;
     }
@@ -2844,10 +2302,6 @@
 
     .stackOrbit {
         height: clamp(220px, 50vw, 360px);
-    }
-
-    .commitVisual {
-        min-height: 280px;
     }
 
     .journeySteps {
@@ -2880,70 +2334,6 @@
 
     .journeyRail > span {
         height: 54px;
-    }
-
-    .infraMap {
-        min-height: 520px;
-    }
-
-    .infraRoutes {
-        display: none;
-    }
-
-    .infraMap::before {
-        position: absolute;
-        top: 86px;
-        bottom: 86px;
-        left: 50%;
-        width: 1px;
-        content: "";
-        background: linear-gradient(var(--signal), rgba(105, 167, 255, 0.15));
-    }
-
-    .infraNode {
-        left: 50%;
-        width: min(240px, calc(100% - 60px));
-        transform: translateX(-50%);
-    }
-
-    .infraSource {
-        top: 32px;
-    }
-
-    .infraRunvey {
-        top: 206px;
-        left: 50%;
-        width: 118px;
-    }
-
-    .infraApp {
-        top: auto;
-        right: auto;
-        bottom: 32px;
-    }
-
-    .infraWorker {
-        display: none;
-    }
-
-    .terminalWindow pre {
-        min-height: 400px;
-        padding: 26px 20px;
-        font-size: 0.65rem;
-    }
-
-    .openSourcePanel {
-        min-height: 560px;
-        padding: 76px 25px;
-    }
-
-    .openSourceRings i:nth-child(2) {
-        width: 460px;
-        height: 460px;
-    }
-
-    .openSourceRings i:last-child {
-        display: none;
     }
 
     .finalCta,
@@ -3032,53 +2422,6 @@
         font-size: 0.61rem;
     }
 
-    .runwayScene {
-        --flight-distance: 285px;
-        min-height: 420px;
-    }
-
-    .sceneTopline {
-        padding: 0 12px;
-    }
-
-    .sceneTopline > span:first-child {
-        display: none;
-    }
-
-    .sceneStatus {
-        margin-left: auto;
-    }
-
-    .telemetry {
-        min-width: 164px;
-        min-height: 55px;
-        padding: 8px 9px;
-    }
-
-    .telemetryStep,
-    .telemetryTime {
-        display: none;
-    }
-
-    .telemetryCopy strong {
-        font-size: 0.58rem;
-    }
-
-    .telemetryCommit {
-        top: 62%;
-        left: 3%;
-    }
-
-    .telemetryBuild {
-        top: 41%;
-        right: 3%;
-    }
-
-    .telemetryLive {
-        top: 19%;
-        left: 3%;
-    }
-
     .section {
         padding: 80px 0;
     }
@@ -3089,8 +2432,8 @@
 
     .sectionHeading h2,
     .ownership h2,
-    .developer h2,
     .openSource h2,
+    .faq h2,
     .finalCta h2 {
         font-size: clamp(2.65rem, 13vw, 3.7rem);
     }
@@ -3108,7 +2451,7 @@
 
     .featureCard {
         min-height: 340px;
-        padding: 22px;
+        padding-block: 32px;
     }
 
     .featureDeploy {
@@ -3119,19 +2462,10 @@
         min-height: clamp(420px, calc(50vw + 190px), 450px);
     }
 
-    .commitVisual {
-        right: 22px;
-        bottom: 22px;
-        left: 22px;
-        min-height: 250px;
-        padding: 18px;
-    }
-
+    .deployVisual,
     .metricsVisual,
     .serverVisual {
-        right: 22px;
-        bottom: 22px;
-        left: 22px;
+        bottom: 32px;
     }
 
     .stackOrbitFrame {
@@ -3148,31 +2482,6 @@
         height: 16px;
     }
 
-    .infraMap {
-        min-height: 500px;
-    }
-
-    .terminalBar {
-        grid-template-columns: 1fr auto;
-    }
-
-    .terminalBar small {
-        display: none;
-    }
-
-    .terminalWindow pre {
-        font-size: 0.58rem;
-    }
-
-    .developerLinks small {
-        line-height: 1.35;
-    }
-
-    .openSourcePanel {
-        min-height: 540px;
-        border-radius: 14px;
-    }
-
     .finalInner .actions {
         width: 100%;
     }
@@ -3187,9 +2496,13 @@
     }
 
     .footerBottom {
-        align-items: flex-start;
+        grid-template-columns: 1fr;
+        justify-items: start;
         gap: 15px;
-        flex-direction: column;
+    }
+
+    .footerStatus {
+        justify-self: start;
     }
 }
 
@@ -3201,25 +2514,6 @@
     .hero h1 {
         font-size: clamp(2.1rem, 10.5vw, 2.35rem);
     }
-
-    .telemetry {
-        min-width: 150px;
-    }
-
-    .telemetryIcon {
-        width: 24px;
-        height: 24px;
-    }
-
-    .telemetryIcon svg {
-        width: 14px;
-        height: 14px;
-    }
-
-    .sceneCaption {
-        font-size: 0.43rem;
-        letter-spacing: 0.08em;
-    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3230,10 +2524,34 @@
         transition-duration: 0.01ms !important;
     }
 
-    .runwayPacket {
-        top: 6%;
-        opacity: 1;
+    .centerLightPulse,
+    .sdFlow,
+    .graphTravel,
+    .graphPulse,
+    .graphHead,
+    .commitStatus,
+    .commitState em {
         animation: none;
-        transform: translate3d(-50%, 0, 0) rotate(45deg) scale(0.4);
+    }
+}
+
+@media (max-width: 480px) {
+    .stageName {
+        font-size: 0.72rem;
+    }
+
+    .stageName small {
+        display: none;
+    }
+
+    .stageDetail {
+        padding-left: 0;
+        font-size: 0.56rem;
+    }
+
+    /* The runway is drawn left of centre to leave room for the stage labels.
+       On phones, nudge the scene right so the runway reads as centred. */
+    .runwayScene {
+        left: 5.5%;
     }
 }
