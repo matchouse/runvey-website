@@ -244,6 +244,116 @@
     color: #d4d7d4;
 }
 
+.desktopOnly {
+    display: contents;
+}
+
+.mobileMenu {
+    display: none;
+}
+
+.menuButton {
+    display: inline-grid;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    place-items: center;
+    border: 1px solid color-mix(in srgb, currentColor 16%, transparent);
+    border-radius: 9px;
+    color: inherit;
+    background: color-mix(in srgb, currentColor 5%, transparent);
+    cursor: pointer;
+}
+
+.menuButton:focus-visible {
+    outline: 2px solid var(--signal);
+    outline-offset: 3px;
+}
+
+.menuButton svg {
+    width: 17px;
+    height: 17px;
+    stroke-width: 1.8;
+}
+
+.menuPanel {
+    display: grid;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    left: 0;
+    padding: 8px;
+    gap: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.115);
+    border-radius: 15px;
+    color: #d4d7d4;
+    background: rgba(13, 15, 14, 0.98);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.32);
+    font-size: 0.95rem;
+}
+
+.menuPanel[hidden] {
+    display: none;
+}
+
+.menuPanel > a {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 12px;
+    border-radius: 9px;
+}
+
+.menuPanel > a:hover,
+.menuPanel > a:focus-visible {
+    color: var(--ink);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.menuPanel svg {
+    width: 16px;
+    height: 16px;
+}
+
+.menuTheme {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 4px;
+    padding: 10px 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.menuPanel > a.menuCta {
+    justify-content: center;
+    margin-top: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--ink);
+    font-weight: 570;
+}
+
+:global(html:not(.dark)) .menuPanel {
+    border-color: rgba(18, 28, 20, 0.13);
+    color: #3c443e;
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 16px 36px rgba(30, 42, 33, 0.12);
+}
+
+:global(html:not(.dark)) .menuPanel > a:hover,
+:global(html:not(.dark)) .menuPanel > a:focus-visible {
+    background: rgba(18, 28, 20, 0.05);
+}
+
+:global(html:not(.dark)) .menuTheme {
+    border-top-color: rgba(18, 28, 20, 0.09);
+}
+
+:global(html:not(.dark)) .menuPanel > a.menuCta {
+    border-color: rgba(18, 28, 20, 0.14);
+    background: #f4f6f5;
+}
+
 .heroContent {
     display: grid;
     width: min(1180px, calc(100% - 48px));
@@ -2205,13 +2315,13 @@
         border-radius: 15px;
     }
 
-    .navLinks {
-        justify-self: end;
-        gap: 0;
+    .navLinks,
+    .desktopOnly {
+        display: none;
     }
 
-    .navLinks a:not(:last-child) {
-        display: none;
+    .mobileMenu {
+        display: block;
     }
 
     .hero {
