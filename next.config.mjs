@@ -5,6 +5,8 @@ const withMDX = createMDX();
 /** @type {import('next').NextConfig} */
 const config = {
   reactStrictMode: true,
+  // Self-contained server in .next/standalone for the Docker image.
+  output: 'standalone',
   async redirects() {
     return [
       { source: '/waitlist', destination: '/early-access', permanent: true },

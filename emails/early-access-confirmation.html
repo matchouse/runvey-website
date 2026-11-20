@@ -31,7 +31,7 @@
   <style>
     :root { color-scheme: light dark; supported-color-schemes: light dark; }
     body { margin: 0; padding: 0; width: 100% !important; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
-    table { border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+    table { border-collapse: separate; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
     img { border: 0; line-height: 100%; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; }
     a { text-decoration: none; }
     a[x-apple-data-detectors] { color: inherit !important; text-decoration: none !important; }
@@ -55,6 +55,8 @@
       .btn-ink { background-color: #f5f7f4 !important; }
       .btn-ink a { color: #10130f !important; }
       .link-purple { color: #b9b3ff !important; }
+      .text-signal { color: #69a7ff !important; }
+      .bg-signal { background-color: #69a7ff !important; }
     }
   </style>
 </head>
@@ -92,7 +94,7 @@
 
           <!-- Card -->
           <tr>
-            <td class="bg-card" style="background-color:#ffffff; border:1px solid #e3e7e4; border-radius:16px;">
+            <td class="bg-card" style="background-color:#ffffff; border:1px solid #e3e7e4; border-radius:8px;">
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
 
                 <!-- Status line -->
@@ -101,9 +103,9 @@
                     <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                       <tr>
                         <td valign="middle" style="padding-right:8px;">
-                          <div style="width:8px; height:8px; border-radius:4px; background-color:#16a34a; font-size:0; line-height:0;">&nbsp;</div>
+                          <div class="bg-signal" style="width:8px; height:8px; border-radius:4px; background-color:#2563eb; font-size:0; line-height:0;">&nbsp;</div>
                         </td>
-                        <td valign="middle" style="font-family:'SFMono-Regular', Menlo, Consolas, 'Courier New', monospace; font-size:11px; letter-spacing:1.4px; text-transform:uppercase; color:#15803d;">
+                        <td valign="middle" class="text-signal" style="font-family:'SFMono-Regular', Menlo, Consolas, 'Courier New', monospace; font-size:11px; letter-spacing:1.4px; text-transform:uppercase; color:#2563eb;">
                           Early access &middot; Confirmed
                         </td>
                       </tr>
@@ -136,25 +138,8 @@
                         </td>
                       </tr>
                       <tr>
-                        <td>
-                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-                            <tr>
-                              <td width="22" valign="top" style="padding:6px 0; font-family:Arial, sans-serif; font-size:15px; line-height:24px; color:#2563eb;">&mdash;</td>
-                              <td class="text-ink" style="padding:6px 0; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:15px; line-height:24px; color:#303832;">First access when private early access opens</td>
-                            </tr>
-                            <tr>
-                              <td width="22" valign="top" style="padding:6px 0; font-family:Arial, sans-serif; font-size:15px; line-height:24px; color:#2563eb;">&mdash;</td>
-                              <td class="text-ink" style="padding:6px 0; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:15px; line-height:24px; color:#303832;">A say in what we build next</td>
-                            </tr>
-                            <tr>
-                              <td width="22" valign="top" style="padding:6px 0; font-family:Arial, sans-serif; font-size:15px; line-height:24px; color:#2563eb;">&mdash;</td>
-                              <td class="text-ink" style="padding:6px 0; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:15px; line-height:24px; color:#303832;">An early access discount</td>
-                            </tr>
-                            <tr>
-                              <td width="22" valign="top" style="padding:6px 0; font-family:Arial, sans-serif; font-size:15px; line-height:24px; color:#2563eb;">&mdash;</td>
-                              <td class="text-ink" style="padding:6px 0; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:15px; line-height:24px; color:#303832;">Priority support</td>
-                            </tr>
-                          </table>
+                        <td class="text-ink" style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:15px; line-height:24px; color:#303832;">
+                          First access when private early access opens, an early access discount, priority support, and a say in what we build next.
                         </td>
                       </tr>
                     </table>
@@ -169,17 +154,17 @@
                         <td class="stack">
                           <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                             <tr>
-                              <td class="btn-ink" align="center" bgcolor="#111411" style="border-radius:9px; background-color:#111411;">
-                                <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="https://runvey.io/roadmap?utm_source=email&amp;utm_medium=email&amp;utm_campaign=early_access_confirmation" style="height:46px;v-text-anchor:middle;width:200px;" arcsize="20%" stroke="f" fillcolor="#111411"><w:anchorlock/><center style="color:#ffffff;font-family:Arial,sans-serif;font-size:15px;font-weight:bold;">See the roadmap</center></v:roundrect><![endif]-->
+                              <td class="btn-ink" align="center" bgcolor="#111411" style="border-radius:6px; background-color:#111411;">
+                                <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="https://runvey.io/roadmap?utm_source=email&amp;utm_medium=email&amp;utm_campaign=early_access_confirmation" style="height:46px;v-text-anchor:middle;width:200px;" arcsize="13%" stroke="f" fillcolor="#111411"><w:anchorlock/><center style="color:#ffffff;font-family:Arial,sans-serif;font-size:15px;font-weight:bold;">See the roadmap</center></v:roundrect><![endif]-->
                                 <!--[if !mso]><!-->
-                                <a href="https://runvey.io/roadmap?utm_source=email&amp;utm_medium=email&amp;utm_campaign=early_access_confirmation" target="_blank" style="display:inline-block; padding:13px 22px; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:15px; font-weight:600; line-height:20px; color:#ffffff; text-decoration:none; border-radius:9px;">See the roadmap &rarr;</a>
+                                <a href="https://runvey.io/roadmap?utm_source=email&amp;utm_medium=email&amp;utm_campaign=early_access_confirmation" target="_blank" style="display:inline-block; padding:13px 22px; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:15px; font-weight:600; line-height:20px; color:#ffffff; text-decoration:none; border-radius:6px;">See the roadmap</a>
                                 <!--<![endif]-->
                               </td>
                             </tr>
                           </table>
                         </td>
                         <td class="stack stack-gap" style="padding-left:20px;">
-                          <a href="https://github.com/matchouse/runvey" target="_blank" class="text-ink" style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:15px; font-weight:600; color:#111411; text-decoration:none;">Follow on GitHub &rarr;</a>
+                          <a href="https://github.com/matchouse/runvey" target="_blank" class="text-ink" style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:15px; font-weight:600; color:#111411; text-decoration:underline;">Follow on GitHub</a>
                         </td>
                       </tr>
                     </table>
@@ -189,7 +174,7 @@
                 <!-- Matchouse: while you wait -->
                 <tr>
                   <td class="px" style="padding:36px 40px 40px;">
-                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="bg-promo" style="background-color:#f4f3ff; border:1px solid #e0deff; border-radius:12px;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="bg-promo" style="background-color:#f4f3ff; border:1px solid #e0deff; border-radius:8px;">
                       <tr>
                         <td style="padding:22px 24px 6px;">
                           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -226,17 +211,17 @@
                               <td class="stack">
                                 <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                                   <tr>
-                                    <td align="center" bgcolor="#4f44e0" style="border-radius:8px; background-color:#4f44e0;">
-                                      <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="https://matchouse.com/auth/register?utm_source=runvey&amp;utm_medium=email&amp;utm_campaign=early_access_confirmation" style="height:40px;v-text-anchor:middle;width:190px;" arcsize="20%" stroke="f" fillcolor="#4f44e0"><w:anchorlock/><center style="color:#ffffff;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;">Create your profile</center></v:roundrect><![endif]-->
+                                    <td align="center" bgcolor="#4f44e0" style="border-radius:6px; background-color:#4f44e0;">
+                                      <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="https://matchouse.com/auth/register?utm_source=runvey&amp;utm_medium=email&amp;utm_campaign=early_access_confirmation" style="height:40px;v-text-anchor:middle;width:190px;" arcsize="15%" stroke="f" fillcolor="#4f44e0"><w:anchorlock/><center style="color:#ffffff;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;">Create your profile</center></v:roundrect><![endif]-->
                                       <!--[if !mso]><!-->
-                                      <a href="https://matchouse.com/auth/register?utm_source=runvey&amp;utm_medium=email&amp;utm_campaign=early_access_confirmation" target="_blank" style="display:inline-block; padding:10px 16px; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:14px; font-weight:600; line-height:20px; color:#ffffff; text-decoration:none; border-radius:8px;">Create your profile &rarr;</a>
+                                      <a href="https://matchouse.com/auth/register?utm_source=runvey&amp;utm_medium=email&amp;utm_campaign=early_access_confirmation" target="_blank" style="display:inline-block; padding:10px 16px; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:14px; font-weight:600; line-height:20px; color:#ffffff; text-decoration:none; border-radius:6px;">Create your profile</a>
                                       <!--<![endif]-->
                                     </td>
                                   </tr>
                                 </table>
                               </td>
                               <td class="stack stack-gap" style="padding-left:18px;">
-                                <a href="https://matchouse.com/search?utm_source=runvey&amp;utm_medium=email&amp;utm_campaign=early_access_confirmation" target="_blank" class="link-purple" style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:14px; font-weight:600; color:#4f44e0; text-decoration:none;">Explore Matchouse &rarr;</a>
+                                <a href="https://matchouse.com/search?utm_source=runvey&amp;utm_medium=email&amp;utm_campaign=early_access_confirmation" target="_blank" class="link-purple" style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:14px; font-weight:600; color:#4f44e0; text-decoration:underline;">Explore Matchouse</a>
                               </td>
                             </tr>
                           </table>
@@ -261,7 +246,7 @@
           </tr>
           <tr>
             <td class="px text-faint" style="padding:12px 40px 0; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:12px; line-height:19px; color:#7a837c;">
-              Runvey is a project by Matchouse. Percy Real Estate Ltd, trading as Matchouse, 25 Cabot Square, London E14 4QZ, United Kingdom.
+              Runvey is a project by Matchouse Ltd, 25 Cabot Square, London E14 4QZ, United Kingdom.
             </td>
           </tr>
 

@@ -19,7 +19,7 @@ const sections: LegalSection[] = [
   {
     id: 'acceptance',
     title: 'Acceptance and scope',
-    content: <><Paragraph>These Terms of Service govern your access to and use of the Runvey website, documentation, community resources, support channels, and any hosted services that link to these Terms (together, the <strong>Services</strong>).</Paragraph><Paragraph>Runvey is maintained by <strong>Percy Real Estate Ltd, trading as Matchouse</strong>, a company registered in England and Wales under company number <strong>15525233</strong>, with its registered office at 25 Cabot Square, London, England, E14 4QZ. In these Terms, “Runvey”, “we”, “us”, and “our” refer to that operator.</Paragraph><Note>By accessing or using the Services, you agree to these Terms. If you use the Services for an organisation, you confirm that you are authorised to bind it. If you do not agree, do not use the Services.</Note></>,
+    content: <><Paragraph>These Terms of Service govern your access to and use of the Runvey website, documentation, community resources, support channels, and any hosted services that link to these Terms (together, the <strong>Services</strong>).</Paragraph><Paragraph>Runvey is maintained by <strong>Matchouse Ltd</strong>, a company registered in England and Wales under company number <strong>15525233</strong>, with its registered office at 25 Cabot Square, London, England, E14 4QZ. In these Terms, “Runvey”, “we”, “us”, and “our” refer to that operator.</Paragraph><Note>By accessing or using the Services, you agree to these Terms. If you use the Services for an organisation, you confirm that you are authorised to bind it. If you do not agree, do not use the Services.</Note></>,
   },
   {
     id: 'open-source',
@@ -99,7 +99,7 @@ const sections: LegalSection[] = [
   {
     id: 'changes-contact',
     title: 'Changes and contact details',
-    content: <><Paragraph>We may update these Terms to reflect changes to the Services, law, security practices, or our business. The updated version will show a new effective date. For material changes to a paid Service, we will provide reasonable notice where required.</Paragraph><Paragraph>Contact: Percy Real Estate Ltd, 25 Cabot Square, London, England, E14 4QZ. Email: <a href={`mailto:${LEGAL_EMAIL}`}>{LEGAL_EMAIL}</a>. Source and community issues: <a href={RUNVEY_REPOSITORY} target="_blank" rel="noreferrer">github.com/matchouse/runvey</a>.</Paragraph><Paragraph>These Terms, the <Link href="/privacy">Privacy Policy</Link>, the applicable open-source licence, and any order form make up the agreement relevant to your use. If one provision is unenforceable, the remaining provisions continue in effect.</Paragraph></>,
+    content: <><Paragraph>We may update these Terms to reflect changes to the Services, law, security practices, or our business. The updated version will show a new effective date. For material changes to a paid Service, we will provide reasonable notice where required.</Paragraph><Paragraph>Contact: Matchouse Ltd, 25 Cabot Square, London, England, E14 4QZ. Email: <a href={`mailto:${LEGAL_EMAIL}`}>{LEGAL_EMAIL}</a>. Source and community issues: <a href={RUNVEY_REPOSITORY} target="_blank" rel="noreferrer">github.com/matchouse/runvey</a>.</Paragraph><Paragraph>These Terms, the <Link href="/privacy">Privacy Policy</Link>, the applicable open-source licence, and any order form make up the agreement relevant to your use. If one provision is unenforceable, the remaining provisions continue in effect.</Paragraph></>,
   },
 ];
 

@@ -25,7 +25,7 @@ const sections: LegalSection[] = [
   {
     id: 'controller',
     title: 'Who is responsible for your data',
-    content: <><Paragraph>The data controller for Runvey-operated Services is <strong>Percy Real Estate Ltd, trading as Matchouse</strong>, registered in England and Wales under company number <strong>15525233</strong>, with its registered office at 25 Cabot Square, London, England, E14 4QZ.</Paragraph><Paragraph>For privacy questions or rights requests, email <a href={`mailto:${LEGAL_EMAIL}`}>{LEGAL_EMAIL}</a>. If another organisation provides your hosted Runvey service, consult that organisation’s privacy notice first.</Paragraph></>,
+    content: <><Paragraph>The data controller for Runvey-operated Services is <strong>Matchouse Ltd</strong>, registered in England and Wales under company number <strong>15525233</strong>, with its registered office at 25 Cabot Square, London, England, E14 4QZ.</Paragraph><Paragraph>For privacy questions or rights requests, email <a href={`mailto:${LEGAL_EMAIL}`}>{LEGAL_EMAIL}</a>. If another organisation provides your hosted Runvey service, consult that organisation’s privacy notice first.</Paragraph></>,
   },
   {
     id: 'data-collected',
@@ -90,7 +90,7 @@ const sections: LegalSection[] = [
   {
     id: 'changes-contact',
     title: 'Changes, complaints, and contact',
-    content: <><Paragraph>We may update this Policy when our Services, providers, or legal obligations change. The current version will remain available here with its effective date. We will provide additional notice of material changes where required.</Paragraph><Paragraph>Contact the Runvey privacy team at <a href={`mailto:${LEGAL_EMAIL}`}>{LEGAL_EMAIL}</a>, or write to Percy Real Estate Ltd, 25 Cabot Square, London, England, E14 4QZ. Please do not place confidential or sensitive personal data in a public GitHub issue.</Paragraph><Paragraph>If we cannot resolve your concern, you may complain to the regulator available in your location. In the UK, this is the <a href="https://ico.org.uk/make-a-complaint/" target="_blank" rel="noreferrer">Information Commissioner’s Office</a>.</Paragraph></>,
+    content: <><Paragraph>We may update this Policy when our Services, providers, or legal obligations change. The current version will remain available here with its effective date. We will provide additional notice of material changes where required.</Paragraph><Paragraph>Contact the Runvey privacy team at <a href={`mailto:${LEGAL_EMAIL}`}>{LEGAL_EMAIL}</a>, or write to Matchouse Ltd, 25 Cabot Square, London, England, E14 4QZ. Please do not place confidential or sensitive personal data in a public GitHub issue.</Paragraph><Paragraph>If we cannot resolve your concern, you may complain to the regulator available in your location. In the UK, this is the <a href="https://ico.org.uk/make-a-complaint/" target="_blank" rel="noreferrer">Information Commissioner’s Office</a>.</Paragraph></>,
   },
 ];
 
