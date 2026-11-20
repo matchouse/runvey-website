@@ -17,6 +17,7 @@ import { MatchouseLogo } from "./matchouse-logo";
 import { RunwayScene } from "./runway-scene";
 import { SecurityDiagram } from "./security-diagram";
 import { StackOrbit } from "./stack-orbit";
+import { MobileMenu } from "./mobile-menu";
 import { ThemeToggle } from "./theme-toggle";
 
 export const metadata: Metadata = {
@@ -93,10 +94,13 @@ export default function HomePage() {
               </a>
             </div>
             <div className={styles.navActions}>
-              <ThemeToggle />
+              <span className={styles.desktopOnly}>
+                <ThemeToggle />
+              </span>
               <Link className={styles.navCta} href={EARLY_ACCESS_URL}>
                 Get started <ArrowRight />
               </Link>
+              <MobileMenu githubUrl={GITHUB_URL} earlyAccessUrl={EARLY_ACCESS_URL} />
             </div>
           </MotionNav>
         </header>
