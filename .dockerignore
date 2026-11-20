@@ -1,0 +1,27 @@
+# Dependencies and build output are recreated inside the image
+node_modules
+.next
+.source
+out
+build
+coverage
+*.tsbuildinfo
+next-env.d.ts
+
+# Not needed to build the site
+.git
+.github
+emails
+README.md
+Dockerfile
+.dockerignore
+.oxlintrc.json
+
+# Never send secrets or local env files into the build
+.env*
+*.pem
+
+# Editor / OS
+.DS_Store
+.vscode
+.idea
