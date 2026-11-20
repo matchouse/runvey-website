@@ -98,6 +98,12 @@ export function WaitlistForm() {
           />
         </div>
 
+        {state.status === "error" && !errors?.name && !errors?.email && (
+          <p className={styles.fieldError} role="alert">
+            {state.message}
+          </p>
+        )}
+
         <button className={styles.submit} type="submit" disabled={pending}>
           {pending ? (
             <>
