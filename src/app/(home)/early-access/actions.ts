@@ -1,5 +1,7 @@
 "use server";
 
+import { headers } from "next/headers";
+
 export type WaitlistState =
   | { status: "idle" }
   | { status: "success"; name: string }
@@ -39,9 +41,63 @@ export async function joinWaitlist(
     };
   }
 
-  // TODO(waitlist): store the signup. Destination not decided yet
-  // (database / Ghost members / email tool). Until then nothing is saved.
-  console.info("[waitlist] signup received (not stored yet)", { name, email });
+  const apiUrl = process.env.RUNVEY_API_URL;
+  if (!apiUrl) {
+    console.error("[waitlist] RUNVEY_API_URL is not set");
+    return serverError(name, email);
+  }
+
+  const h = await headers();
+  try {
+    const res = await fetch(`${apiUrl.replace(/\/$/, "")}/v1/early-access`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        ...(process.env.RUNVEY_API_KEY && {
+          Authorization: `Bearer ${process.env.RUNVEY_API_KEY}`,
+        }),
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        ip:
+          h.get("cf-connecting-ip") ??
+          h.get("x-forwarded-for")?.split(",")[0]?.trim() ??
+          "",
+        user_agent: h.get("user-agent") ?? "",
+      }),
+      signal: AbortSignal.timeout(10_000),
+      cache: "no-store",
+    });
+
+    if (res.status === 422) {
+      const body = (await res.json()) as {
+        error?: string;
+        field_errors?: { name?: string; email?: string };
+      };
+      return {
+        status: "error",
+        message: body.error ?? "Check the highlighted fields.",
+        fieldErrors: body.field_errors,
+        values: { name, email },
+      };
+    }
+    if (!res.ok) {
+      console.error("[waitlist] backend returned", res.status);
+      return serverError(name, email);
+    }
+  } catch (err) {
+    console.error("[waitlist] backend request failed", err);
+    return serverError(name, email);
+  }
 
   return { status: "success", name };
+}
+
+function serverError(name: string, email: string): WaitlistState {
+  return {
+    status: "error",
+    message: "Something went wrong on our side. Please try again in a moment.",
+    values: { name, email },
+  };
 }
