@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Mail } from "lucide-react";
 import home from "../home.module.css";
@@ -7,11 +8,12 @@ import { ThemeToggle } from "../theme-toggle";
 import base from "../early-access/waitlist.module.css";
 import styles from "./sponsor.module.css";
 
-export const metadata: Metadata = {
-  title: "Sponsor Runvey",
+export const metadata: Metadata = pageMetadata({
+  title: "Sponsor",
   description:
     "Runvey is open source and free to self-host, forever. Sponsor the project on GitHub, or email us about company sponsorship.",
-};
+  path: "/sponsor",
+});
 
 const GITHUB_SPONSORS_URL = "https://github.com/sponsors/matchouse";
 const SPONSOR_EMAIL = "sponsors@runvey.io";

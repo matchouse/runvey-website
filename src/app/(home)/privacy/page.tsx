@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import Link from 'next/link';
 import {
   BulletList,
@@ -11,10 +12,11 @@ import {
   type LegalSection,
 } from '../legal-document';
 
-export const metadata: Metadata = {
-  title: 'Privacy Policy — Runvey',
+export const metadata: Metadata = pageMetadata({
+  title: 'Privacy Policy',
   description: 'How Runvey collects, uses, shares, retains, and protects personal data.',
-};
+  path: '/privacy',
+});
 
 const sections: LegalSection[] = [
   {
@@ -50,7 +52,7 @@ const sections: LegalSection[] = [
   {
     id: 'cookies',
     title: 'Cookies, local storage, and analytics',
-    content: <><Paragraph>At the effective date of this Policy, the public Runvey website does not intentionally use advertising cookies or cross-site behavioural advertising. It may use local storage or technically necessary identifiers to remember interface preferences, maintain security, or support functionality.</Paragraph><Paragraph>If we introduce non-essential analytics or marketing technologies, we will update this Policy and provide consent controls where required. Browser settings can clear or block storage, but doing so may affect preferences or signed-in features.</Paragraph></>,
+    content: <><Paragraph>At the effective date of this Policy, the public Runvey website does not intentionally use advertising cookies or cross-site behavioural advertising. It may use local storage or technically necessary identifiers to remember interface preferences, maintain security, or support functionality.</Paragraph><Paragraph>We use Plausible Analytics, a privacy-focused analytics service, to understand aggregate website usage such as page views, referrers, and approximate country. Plausible does not use cookies or store anything on your device, does not track you across websites, and does not store IP addresses or other persistent identifiers. Visitor counts are based on a daily-rotating, irreversible hash, so we cannot identify individual visitors.</Paragraph><Paragraph>If we introduce other non-essential analytics or marketing technologies, we will update this Policy and provide consent controls where required. Browser settings can clear or block storage, but doing so may affect preferences or signed-in features.</Paragraph></>,
   },
   {
     id: 'sharing',
@@ -95,5 +97,5 @@ const sections: LegalSection[] = [
 ];
 
 export default function PrivacyPage() {
-  return <LegalDocument kind="privacy" eyebrow="Your data" title="Privacy Policy" description="How Runvey collects, uses, shares, retains, and protects personal data across its website, community, and operated services." sections={sections} />;
+  return <LegalDocument kind="privacy" eyebrow="Your data" title="Privacy Policy" description="How Runvey collects, uses, shares, retains, and protects personal data across its website, community, and operated services." sections={sections} lastUpdated="23 November 2026" />;
 }

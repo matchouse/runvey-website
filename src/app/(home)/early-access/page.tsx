@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import home from "../home.module.css";
@@ -7,11 +8,12 @@ import { ThemeToggle } from "../theme-toggle";
 import { WaitlistForm } from "./waitlist-form";
 import styles from "./waitlist.module.css";
 
-export const metadata: Metadata = {
-  title: "Get early access | Runvey",
+export const metadata: Metadata = pageMetadata({
+  title: "Get early access",
   description:
     "Request early access to Runvey. Private early access opens in early 2027, and invites go out by email.",
-};
+  path: "/early-access",
+});
 
 const perks = [
   "First access when private early access opens",

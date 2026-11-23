@@ -15,6 +15,7 @@ type LegalDocumentProps = {
   eyebrow: string;
   description: string;
   sections: LegalSection[];
+  lastUpdated?: string;
 };
 
 export const EFFECTIVE_DATE = '8 September 2026';
@@ -37,7 +38,7 @@ export function Note({ children }: { children: React.ReactNode }) {
   return <div className={styles.note}>{children}</div>;
 }
 
-export function LegalDocument({ kind, title, eyebrow, description, sections }: LegalDocumentProps) {
+export function LegalDocument({ kind, title, eyebrow, description, sections, lastUpdated = EFFECTIVE_DATE }: LegalDocumentProps) {
   const otherHref = kind === 'terms' ? '/privacy' : '/terms';
   const otherLabel = kind === 'terms' ? 'Privacy Policy' : 'Terms of Service';
 
@@ -65,7 +66,7 @@ export function LegalDocument({ kind, title, eyebrow, description, sections }: L
           <p>{description}</p>
           <div className={styles.meta}>
             <span><small>Effective date</small>{EFFECTIVE_DATE}</span>
-            <span><small>Last updated</small>{EFFECTIVE_DATE}</span>
+            <span><small>Last updated</small>{lastUpdated}</span>
             <span><small>Sections</small>{sections.length}</span>
           </div>
         </div>

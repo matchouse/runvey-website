@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import Link from 'next/link';
 import {
   BulletList,
@@ -10,10 +11,11 @@ import {
   type LegalSection,
 } from '../legal-document';
 
-export const metadata: Metadata = {
-  title: 'Terms of Service — Runvey',
+export const metadata: Metadata = pageMetadata({
+  title: 'Terms of Service',
   description: 'Terms governing the Runvey website, documentation, open-source project, and related services.',
-};
+  path: '/terms',
+});
 
 const sections: LegalSection[] = [
   {

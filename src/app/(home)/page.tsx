@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata, siteDescription, siteUrl } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowRight, Plus, Terminal } from "lucide-react";
 import styles from "./home.module.css";
@@ -12,24 +13,11 @@ import { StackOrbit } from "./stack-orbit";
 import { MobileMenu } from "./mobile-menu";
 import { ThemeToggle } from "./theme-toggle";
 
-export const metadata: Metadata = {
-  title: "Runvey | Your code, cleared for launch.",
+export const metadata: Metadata = pageMetadata({
   description:
     "Runvey is the open-source platform for shipping applications on your own infrastructure.",
-  openGraph: {
-    type: "website",
-    siteName: "Runvey",
-    title: "Runvey | Your code, cleared for launch.",
-    description:
-      "Runvey is the open-source platform for shipping applications on your own infrastructure.",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Runvey | Your code, cleared for launch.",
-    description:
-      "Runvey is the open-source platform for shipping applications on your own infrastructure.",
-  },
-};
+  path: "/",
+});
 
 const GITHUB_URL = "https://github.com/matchouse/runvey";
 // Runvey is pre-launch: every "get started" style CTA leads to the early access page.
@@ -66,9 +54,44 @@ function Kicker({ index, children }: { index: string; children: React.ReactNode 
   );
 }
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      name: "Runvey",
+      url: siteUrl,
+      logo: `${siteUrl}/brand/runvey-icon.png`,
+      sameAs: [GITHUB_URL],
+      parentOrganization: { "@type": "Organization", name: "Matchouse", url: "https://matchouse.com" },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      name: "Runvey",
+      url: siteUrl,
+      description: siteDescription,
+      publisher: { "@id": `${siteUrl}/#organization` },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map(({ q, a }) => ({
+        "@type": "Question",
+        name: q,
+        acceptedAnswer: { "@type": "Answer", text: a },
+      })),
+    },
+  ],
+};
+
 export default function HomePage() {
   return (
     <div className={styles.page}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
       <a className={styles.skipLink} href="#main-content">
         Skip to content
       </a>

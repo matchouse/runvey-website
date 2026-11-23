@@ -16,7 +16,7 @@ import {
   surface,
   thresholdLights,
   touchdownZone,
-} from "./runway-geometry";
+} from "./(home)/runway-geometry";
 
 export const alt =
   "Runvey: Push code. Watch it take off. Open-source deployments from Git push to production.";

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import home from "../home.module.css";
@@ -8,11 +9,12 @@ import base from "../early-access/waitlist.module.css";
 import { FlightHero } from "./flight-hero";
 import styles from "./roadmap.module.css";
 
-export const metadata: Metadata = {
-  title: "Roadmap | Runvey",
+export const metadata: Metadata = pageMetadata({
+  title: "Roadmap",
   description:
     "What we're building for Runvey, what comes next, and what's planned after v1.",
-};
+  path: "/roadmap",
+});
 
 type Status = "done" | "now" | "next" | "later";
 
