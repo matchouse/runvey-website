@@ -6,8 +6,6 @@ import {
   Entrance,
   GlowPulse,
   MotionNav,
-  Reveal,
-  RevealCard,
   SceneEntrance,
   StickyHero,
 } from "./motion-elements";
@@ -179,7 +177,7 @@ export default function HomePage() {
 
         <section className={`${styles.section} ${styles.product}`} id="product">
           <div className={styles.inner}>
-            <Reveal className={styles.sectionHeading}>
+            <div className={styles.sectionHeading}>
               <Kicker index="01">THE PLATFORM</Kicker>
               <h2>
                 Focus on the product.
@@ -190,19 +188,19 @@ export default function HomePage() {
                 Runvey handles the repetitive infrastructure work, so your team can stay focused on
                 the product.
               </p>
-            </Reveal>
+            </div>
             <div className={styles.bento}>
-              <RevealCard className={`${styles.featureCard} ${styles.featureDeploy}`}>
+              <article className={`${styles.featureCard} ${styles.featureDeploy}`}>
                 <h3>Deploy from Git</h3>
                 <p>Connect a repository and turn every push into a traceable release.</p>
                 <DeployVisual />
-              </RevealCard>
-              <RevealCard className={`${styles.featureCard} ${styles.featureBuild}`} delay={0.08}>
+              </article>
+              <article className={`${styles.featureCard} ${styles.featureBuild}`}>
                 <h3>Bring your stack</h3>
                 <p>Ship the services your application needs without reshaping how they work.</p>
                 <StackOrbit />
-              </RevealCard>
-              <RevealCard className={styles.featureCard} delay={0.12}>
+              </article>
+              <article className={styles.featureCard}>
                 <h3>See what is happening</h3>
                 <p>Follow builds, releases, and runtime events from one clear control plane.</p>
                 <div className={styles.metricsVisual} aria-hidden="true">
@@ -210,8 +208,8 @@ export default function HomePage() {
                     <span key={height} style={{ height: `${height}%` }} />
                   ))}
                 </div>
-              </RevealCard>
-              <RevealCard className={styles.featureCard} delay={0.16}>
+              </article>
+              <article className={styles.featureCard}>
                 <h3>Your cloud stays yours</h3>
                 <p>
                   Keep applications and data on infrastructure you control, with Runvey as the
@@ -228,14 +226,14 @@ export default function HomePage() {
                     <i /> <strong>Your server</strong> 10.0.4.12 <em>1 service</em>
                   </span>
                 </div>
-              </RevealCard>
+              </article>
             </div>
           </div>
         </section>
 
         <section className={`${styles.section} ${styles.journey}`} id="workflow">
           <div className={styles.inner}>
-            <Reveal className={`${styles.sectionHeading} ${styles.headingSplit}`}>
+            <div className={`${styles.sectionHeading} ${styles.headingSplit}`}>
               <div>
                 <Kicker index="02">HOW IT WORKS</Kicker>
                 <h2>
@@ -248,8 +246,8 @@ export default function HomePage() {
                 Connect a repository, choose where it runs, and every push after that becomes a
                 release.
               </p>
-            </Reveal>
-            <Reveal className={styles.journeyTrack} delay={0.08}>
+            </div>
+            <div className={styles.journeyTrack}>
               <div className={styles.journeyRail} aria-hidden="true">
                 <span>
                   <small>01</small>
@@ -284,13 +282,13 @@ export default function HomePage() {
                   <p>Runvey builds and releases each push, and shows every step as it happens.</p>
                 </li>
               </ol>
-            </Reveal>
+            </div>
           </div>
         </section>
 
         <section className={`${styles.section} ${styles.ownership}`}>
           <div className={`${styles.inner} ${styles.ownershipGrid}`}>
-            <Reveal className={styles.ownershipCopy}>
+            <div className={styles.ownershipCopy}>
               <Kicker index="03">SECURITY BY DESIGN</Kicker>
               <h2>
                 Your servers stay closed.
@@ -326,15 +324,15 @@ export default function HomePage() {
                   </p>
                 </div>
               </div>
-            </Reveal>
-            <Reveal className={styles.securityVisual} delay={0.1}>
+            </div>
+            <div className={styles.securityVisual}>
               <SecurityDiagram />
-            </Reveal>
+            </div>
           </div>
         </section>
 
         <section className={`${styles.section} ${styles.openSource}`}>
-          <Reveal className={`${styles.inner} ${styles.openSourcePanel}`}>
+          <div className={`${styles.inner} ${styles.openSourcePanel}`}>
             <Kicker index="04">BUILT IN THE OPEN</Kicker>
             <h2>
               Infrastructure should not
@@ -353,20 +351,20 @@ export default function HomePage() {
             >
               <GitHubIcon /> Explore on GitHub
             </a>
-          </Reveal>
+          </div>
         </section>
 
         <section className={`${styles.section} ${styles.faq}`} id="faq">
           <div className={`${styles.inner} ${styles.faqGrid}`}>
-            <Reveal className={styles.faqIntro}>
+            <div className={styles.faqIntro}>
               <Kicker index="05">FAQ</Kicker>
               <h2>
                 Good questions.
                 <br />
                 <em>Straight answers.</em>
               </h2>
-            </Reveal>
-            <Reveal className={styles.faqList} delay={0.08}>
+            </div>
+            <div className={styles.faqList}>
               {faqs.map((item) => (
                 <details key={item.q}>
                   <summary>
@@ -376,7 +374,7 @@ export default function HomePage() {
                   <p>{item.a}</p>
                 </details>
               ))}
-            </Reveal>
+            </div>
           </div>
         </section>
 
@@ -387,7 +385,7 @@ export default function HomePage() {
             <i />
             <i />
           </div>
-          <Reveal className={`${styles.inner} ${styles.finalInner}`}>
+          <div className={`${styles.inner} ${styles.finalInner}`}>
             <span className={styles.finalStatus}>
               <i /> RUNWAY CLEAR
             </span>
@@ -410,7 +408,7 @@ export default function HomePage() {
                 Get started on GitHub <ArrowRight />
               </a>
             </div>
-          </Reveal>
+          </div>
         </section>
       </main>
 

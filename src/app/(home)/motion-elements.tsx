@@ -88,39 +88,6 @@ export function SceneEntrance({ children, className, delay = 0, ariaHidden }: Mo
   );
 }
 
-export function Reveal({ children, className, delay = 0, ariaHidden }: MotionBlockProps) {
-  const reduced = useReducedMotion();
-
-  return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, y: 36 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.18 }}
-      transition={enter(reduced, delay)}
-      aria-hidden={ariaHidden}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-export function RevealCard({ children, className, delay = 0 }: MotionBlockProps) {
-  const reduced = useReducedMotion();
-
-  return (
-    <motion.article
-      className={className}
-      initial={{ opacity: 0, y: 30, scale: 0.985 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={enter(reduced, delay)}
-    >
-      {children}
-    </motion.article>
-  );
-}
-
 export function GlowPulse({ className }: Pick<MotionBlockProps, 'className'>) {
   const reduced = useReducedMotion();
 
