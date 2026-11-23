@@ -2,13 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Plus, Terminal } from "lucide-react";
 import styles from "./home.module.css";
-import {
-  Entrance,
-  GlowPulse,
-  MotionNav,
-  SceneEntrance,
-  StickyHero,
-} from "./motion-elements";
+import { GlowPulse, StickyHero } from "./motion-elements";
 import { Brand, GitHubIcon } from "./brand";
 import { DeployVisual } from "./deploy-visual";
 import { MatchouseLogo } from "./matchouse-logo";
@@ -81,7 +75,7 @@ export default function HomePage() {
 
       <main id="main-content">
         <header className={styles.header}>
-          <MotionNav className={styles.nav}>
+          <nav className={styles.nav} aria-label="Main navigation">
             <Brand />
             <div className={styles.navLinks}>
               <a href="#product">Product</a>
@@ -100,7 +94,7 @@ export default function HomePage() {
               </Link>
               <MobileMenu githubUrl={GITHUB_URL} earlyAccessUrl={EARLY_ACCESS_URL} />
             </div>
-          </MotionNav>
+          </nav>
         </header>
 
         <StickyHero className={styles.hero}>
@@ -108,7 +102,7 @@ export default function HomePage() {
           <div className={styles.heroGrid} aria-hidden="true" />
 
           <div className={styles.heroContent}>
-            <Entrance className={styles.heroCopy} delay={0.16}>
+            <div className={styles.heroCopy}>
               <a className={styles.eyebrow} href={GITHUB_URL} target="_blank" rel="noreferrer">
                 <span className={styles.eyebrowDot}>
                   <i />
@@ -153,11 +147,11 @@ export default function HomePage() {
                   <i /> READY TO DEPLOY
                 </span>
               </div>
-            </Entrance>
+            </div>
 
-            <SceneEntrance className={styles.runwayScene} delay={0.27} ariaHidden>
+            <div className={styles.runwayScene} aria-hidden="true">
               <RunwayScene />
-            </SceneEntrance>
+            </div>
           </div>
         </StickyHero>
 
